@@ -58,6 +58,7 @@ Zapis idzie do `annot/punkty/`, `punkty_obj/`, `punkty_ctx/` i `punkty_ludzie.js
 
 ## 6. Zbiór wspólny do metod i ocen
 ```
+cd ..
 python data_arkitscenes.py && python -P -W ignore data_razem.py    # -> $KP_DANE/kp_razem/
 ```
 Wyniki metod: `results/*.jsonl`, tabele: `report/tabela_eval.py`.
