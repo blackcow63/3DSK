@@ -1,0 +1,238 @@
+{
+ "klucz": "av2_b213af37_2cdb8e4e",
+ "zbior": "av2",
+ "log": "b213af37-7d89-342d-ae39-8a3c72159a01",
+ "track": "2cdb8e4e-2155-460e-9f4e-71f7a325e5ad",
+ "kategoria": "box truck",
+ "opis_obiektu": "",
+ "okno_ns": null,
+ "punkty": [
+  {
+   "nazwa": "center_of_the_left_headlight_of_a_box_truck",
+   "opis": "center of the left headlight of a box truck",
+   "xyz_m": [
+    3.828909238701983,
+    1.047723645093203,
+    -0.7960158579277108
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 290.89,
+     "v": 406.36
+    },
+    {
+     "podglad": 0,
+     "u": 180.28,
+     "v": 385.01
+    }
+   ],
+   "residua_px": {
+    "0": 0.7979083640280025,
+    "2": 0.6538000266883868
+   },
+   "kat_st": 41.09356546195149,
+   "lidar_cm": 1.91191652379457
+  },
+  {
+   "nazwa": "center_of_the_right_headlight_of_a_box_truck",
+   "opis": "center of the right headlight of a box truck",
+   "xyz_m": [
+    3.9159192737124857,
+    -0.9349409192323305,
+    -0.9327898802675056
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 122.06,
+     "v": 408.3
+    },
+    {
+     "podglad": 4,
+     "u": 114.3,
+     "v": 395.1
+    }
+   ],
+   "residua_px": {
+    "2": 4.10662167553917,
+    "4": 4.961493991167299
+   },
+   "kat_st": 21.919398916905344,
+   "lidar_cm": 2.0956907011530213
+  },
+  {
+   "nazwa": "tip_of_the_left_side_mirror_of_a_box_truck",
+   "opis": "tip of the left side mirror of a box truck",
+   "xyz_m": [
+    2.3480562610157625,
+    1.1622677879795695,
+    0.1316426240282166
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 362.52,
+     "v": 314.52
+    },
+    {
+     "podglad": 1,
+     "u": 123.18,
+     "v": 311.28
+    },
+    {
+     "podglad": 4,
+     "u": 307.65,
+     "v": 309.37
+    }
+   ],
+   "residua_px": {
+    "1": 4.466858932353568,
+    "2": 3.8679037704387222,
+    "4": 4.145608710280368
+   },
+   "kat_st": 58.35032491267861,
+   "lidar_cm": 1.5080630924576364
+  },
+  {
+   "nazwa": "center_of_the_front_left_wheel_of_a_box_truck",
+   "opis": "center of the front left wheel of a box truck",
+   "xyz_m": [
+    3.1584270713832083,
+    1.2552713806599505,
+    -1.34268706396841
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 335.01,
+     "v": 455.22
+    },
+    {
+     "podglad": 4,
+     "u": 273.27,
+     "v": 428.65
+    },
+    {
+     "podglad": 0,
+     "u": 238.5,
+     "v": 425.76
+    }
+   ],
+   "residua_px": {
+    "0": 1.5427110819694427,
+    "2": 0.6319377086732963,
+    "4": 2.1633134685405055
+   },
+   "kat_st": 37.94949403666606,
+   "lidar_cm": 3.3011350299949735
+  },
+  {
+   "nazwa": "handle_of_the_left_cab_door_of_a_box_truck",
+   "opis": "handle of the left cab door of a box truck",
+   "xyz_m": [
+    2.5066024963732016,
+    1.2583011035129334,
+    -0.25215564307869326
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 344.19,
+     "v": 343.94
+    },
+    {
+     "podglad": 4,
+     "u": 310.45,
+     "v": 339.88
+    },
+    {
+     "podglad": 0,
+     "u": 292.83,
+     "v": 342.32
+    },
+    {
+     "podglad": 1,
+     "u": 99.26,
+     "v": 344.61
+    }
+   ],
+   "residua_px": {
+    "0": 11.88882918989711,
+    "1": 14.70285416419833,
+    "2": 18.142655860814042,
+    "4": 2.7571785945473666
+   },
+   "kat_st": 73.6413215214523,
+   "lidar_cm": 28.815039662719816
+  },
+  {
+   "nazwa": "top_rear_left_corner_of_the_cargo_box_of_a_box_truck",
+   "opis": "top rear left corner of the cargo box of a box truck",
+   "xyz_m": [
+    -4.399719459108608,
+    0.9058144048440903,
+    1.5175152797844902
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 523.04,
+     "v": 222.82
+    },
+    {
+     "podglad": 4,
+     "u": 530.42,
+     "v": 243.21
+    },
+    {
+     "podglad": 1,
+     "u": 348.95,
+     "v": 169.64
+    },
+    {
+     "podglad": 3,
+     "u": 422.85,
+     "v": 189.4
+    }
+   ],
+   "residua_px": {
+    "1": 1.3419231216005214,
+    "2": 0.5313533320264251,
+    "3": 1.1441405180772173,
+    "4": 0.5920535378703545
+   },
+   "kat_st": 74.36552880904756,
+   "lidar_cm": 4.350425189282247
+  },
+  {
+   "nazwa": "bottom_rear_left_corner_of_the_cargo_box_of_a_box_truck",
+   "opis": "bottom rear left corner of the cargo box of a box truck",
+   "xyz_m": [
+    -4.504643542536389,
+    0.9771970740927962,
+    -0.7309329512106599
+   ],
+   "klikniecia": [
+    {
+     "podglad": 0,
+     "u": 541.22,
+     "v": 352.02
+    },
+    {
+     "podglad": 1,
+     "u": 346.14,
+     "v": 391.15
+    }
+   ],
+   "residua_px": {
+    "0": 2.9023915944129155,
+    "1": 1.2854114379413795
+   },
+   "kat_st": 57.620780646943,
+   "lidar_cm": 14.745919955366782
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T10:53:05.586Z"
+}

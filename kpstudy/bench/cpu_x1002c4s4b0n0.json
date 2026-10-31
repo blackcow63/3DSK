@@ -1,0 +1,90 @@
+{
+ "host": "x1002c4s4b0n0",
+ "machine": "aarch64",
+ "cpu": "aarch64",
+ "affinity": [
+  144,
+  145,
+  146,
+  147
+ ],
+ "calibration": {
+  "lite": {
+   "median_ms": 8.564971503801644,
+   "p90_ms": 8.747495012357831,
+   "n": 100,
+   "pixel4_ms": 25.0,
+   "phone_over_grace": 2.9188655197397346
+  },
+  "full": {
+   "median_ms": 13.475186482537538,
+   "p90_ms": 13.846153044141829,
+   "n": 100,
+   "pixel4_ms": 40.0,
+   "phone_over_grace": 2.9684190309229415
+  },
+  "heavy": {
+   "median_ms": 57.09570649196394,
+   "p90_ms": 58.20300697814673,
+   "n": 100,
+   "pixel4_ms": 147.0,
+   "phone_over_grace": 2.5746244162980947
+  },
+  "factor": 2.9188655197397346,
+  "person_detector_t1": {
+   "median_ms": 9.535027988022193,
+   "p90_ms": 9.549363981932402,
+   "n": 50
+  },
+  "person_detector_t4": {
+   "median_ms": 3.7532035203184932,
+   "p90_ms": 4.017981002107263,
+   "n": 50
+  }
+ },
+ "moge2_vits": {
+  "int8_error": "ModuleNotFoundError(\"No module named 'onnx'\")",
+  "fp32_t1": {
+   "median_ms": 7621.123217482818,
+   "p90_ms": 7663.6320520192385,
+   "n": 30,
+   "model_mb": 134.32698345184326
+  },
+  "fp32_t4": {
+   "median_ms": 2133.350756514119,
+   "p90_ms": 2149.987721000798,
+   "n": 30,
+   "model_mb": 134.32698345184326
+  }
+ },
+ "moge2_vitb": {
+  "int8_error": "ModuleNotFoundError(\"No module named 'onnx'\")",
+  "fp32_t1": {
+   "median_ms": 11261.050219007302,
+   "p90_ms": 11268.30263104057,
+   "n": 30,
+   "model_mb": 399.98230934143066
+  },
+  "fp32_t4": {
+   "median_ms": 3081.3497774943244,
+   "p90_ms": 3169.400045007933,
+   "n": 30,
+   "model_mb": 399.98230934143066
+  }
+ },
+ "moge2_vitl": {
+  "int8_error": "ModuleNotFoundError(\"No module named 'onnx'\")",
+  "fp32_t1": {
+   "median_ms": 24289.29907749989,
+   "p90_ms": 24383.625157002825,
+   "n": 10,
+   "model_mb": 1262.917531967163
+  },
+  "fp32_t4": {
+   "median_ms": 6492.612570495112,
+   "p90_ms": 6563.286627992056,
+   "n": 10,
+   "model_mb": 1262.917531967163
+  }
+ }
+}

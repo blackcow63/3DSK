@@ -1,0 +1,73 @@
+{
+ "klucz": "av2_d5fa4d54_1e79137e",
+ "zbior": "av2",
+ "log": "d5fa4d54-74ba-369c-a758-636441ad7f07",
+ "track": "1e79137e-2d1f-4359-a9e5-243732c5794a",
+ "kategoria": "stop sign",
+ "opis_obiektu": "",
+ "okno_ns": null,
+ "punkty": [
+  {
+   "nazwa": "center_of_a_stop_sign",
+   "opis": "center of a stop sign",
+   "xyz_m": [
+    0.020655115189748063,
+    -0.02922974572591312,
+    1.0109783100646739
+   ],
+   "klikniecia": [
+    {
+     "podglad": 5,
+     "u": 325.82,
+     "v": 181.64
+    },
+    {
+     "podglad": 2,
+     "u": 321.94,
+     "v": 177.37
+    }
+   ],
+   "residua_px": {
+    "2": 1.74254371259509,
+    "5": 1.7653877705354586
+   },
+   "kat_st": 57.15037304796518,
+   "lidar_cm": 1.9457281607409103
+  },
+  {
+   "nazwa": "top_of_the_post_of_a_stop_sign",
+   "opis": "top of the post of a stop sign",
+   "xyz_m": [
+    0.03926566563010367,
+    -0.02678026190568709,
+    0.5724976083317075
+   ],
+   "klikniecia": [
+    {
+     "podglad": 5,
+     "u": 327.76,
+     "v": 239.85
+    },
+    {
+     "podglad": 2,
+     "u": 323.88,
+     "v": 243.35
+    },
+    {
+     "podglad": 4,
+     "u": 316.12,
+     "v": 241.8
+    }
+   ],
+   "residua_px": {
+    "2": 4.173058307234841,
+    "4": 5.331633351041147,
+    "5": 2.780501679450437
+   },
+   "kat_st": 57.321468460888205,
+   "lidar_cm": 0.7404386714747303
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T11:14:01.235Z"
+}

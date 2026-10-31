@@ -1,0 +1,36 @@
+# Repo = tylko eksperymenty 3D semantic keypoints (ciop/kpstudy).
+# Wszystko poza kpstudy/ (docs, papiery, ergobench, publications, scripts) jest ignorowane.
+/*
+!/.gitignore
+!/README.md
+!/kpstudy/
+
+# w kpstudy: bez środowiska, modeli, predykcji, pobranych wyników z Helios
+/kpstudy/.venv/
+/kpstudy/models/
+/kpstudy/preds/
+/kpstudy/tools/
+/kpstudy/_helios_pull/
+# bez rzeczy do papieru
+/kpstudy/report/out/
+/kpstudy/report/*.tex
+/kpstudy/report/insert_paper.py
+/kpstudy/report/fix_furniture_claims.py
+
+# dane i binaria (obrazy, chmury, wagi, logi) - nie do gita
+*.jpg
+*.jpeg
+*.png
+*.ply
+*.bin
+*.onnx
+*.gguf
+*.torchscript
+*.pt
+*.pth
+*.pdf
+*.log
+*.err
+*.pyc
+__pycache__/
+.DS_Store

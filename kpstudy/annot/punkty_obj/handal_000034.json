@@ -1,0 +1,21 @@
+{
+ "klucz": "handal_000034",
+ "zbior": "handal",
+ "obj_id": 34,
+ "nazwa": "colander, green, collapsible",
+ "kategoria": "strainer",
+ "opis_obiektu": "",
+ "punkty": [
+  {
+   "nazwa": "colander tip green",
+   "opis": "end of a handle of a green colander",
+   "xyz_mm": [
+    38.094923587488395,
+    1.7658484406545827,
+    -196.20648303882658
+   ]
+  }
+ ],
+ "uklad": "model BOP, mm",
+ "czas": "2026-10-29T18:58:31.668Z"
+}

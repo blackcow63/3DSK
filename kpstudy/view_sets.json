@@ -1,0 +1,658 @@
+[
+{
+"kind": "single",
+"views": [
+"ring_r130_h120_a-035"
+],
+"set_id": "single000"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h120_a-020"
+],
+"set_id": "single001"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h120_a-005"
+],
+"set_id": "single002"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h120_a+010"
+],
+"set_id": "single003"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h120_a+025"
+],
+"set_id": "single004"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h120_a+035"
+],
+"set_id": "single005"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h120_a+050"
+],
+"set_id": "single006"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h120_a+065"
+],
+"set_id": "single007"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h120_a+105"
+],
+"set_id": "single008"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h155_a-035"
+],
+"set_id": "single009"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h155_a-020"
+],
+"set_id": "single010"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h155_a-005"
+],
+"set_id": "single011"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h155_a+010"
+],
+"set_id": "single012"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h155_a+025"
+],
+"set_id": "single013"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h155_a+035"
+],
+"set_id": "single014"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h155_a+050"
+],
+"set_id": "single015"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h155_a+065"
+],
+"set_id": "single016"
+},
+{
+"kind": "single",
+"views": [
+"ring_r130_h155_a+105"
+],
+"set_id": "single017"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h120_a-045"
+],
+"set_id": "single018"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h120_a-035"
+],
+"set_id": "single019"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h120_a-025"
+],
+"set_id": "single020"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h120_a-015"
+],
+"set_id": "single021"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h120_a-005"
+],
+"set_id": "single022"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h120_a+010"
+],
+"set_id": "single023"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h120_a+020"
+],
+"set_id": "single024"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h120_a+060"
+],
+"set_id": "single025"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h120_a+070"
+],
+"set_id": "single026"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h155_a-045"
+],
+"set_id": "single027"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h155_a-035"
+],
+"set_id": "single028"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h155_a-025"
+],
+"set_id": "single029"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h155_a-015"
+],
+"set_id": "single030"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h155_a-005"
+],
+"set_id": "single031"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h155_a+010"
+],
+"set_id": "single032"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h155_a+020"
+],
+"set_id": "single033"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h155_a+060"
+],
+"set_id": "single034"
+},
+{
+"kind": "single",
+"views": [
+"ring_r220_h155_a+070"
+],
+"set_id": "single035"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_01",
+"walkB_04"
+],
+"baseline_bin": 5,
+"baseline_deg": 5.7,
+"set_id": "pair036"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_02",
+"walkB_05"
+],
+"baseline_bin": 5,
+"baseline_deg": 5.7,
+"set_id": "pair037"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_00",
+"walkB_03"
+],
+"baseline_bin": 5,
+"baseline_deg": 5.7,
+"set_id": "pair038"
+},
+{
+"kind": "pair",
+"views": [
+"walkC_00",
+"walkC_03"
+],
+"baseline_bin": 5,
+"baseline_deg": 5.7,
+"set_id": "pair039"
+},
+{
+"kind": "pair",
+"views": [
+"walkC_01",
+"walkC_04"
+],
+"baseline_bin": 5,
+"baseline_deg": 5.7,
+"set_id": "pair040"
+},
+{
+"kind": "pair",
+"views": [
+"walkC_02",
+"walkC_05"
+],
+"baseline_bin": 5,
+"baseline_deg": 5.7,
+"set_id": "pair041"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_00",
+"walkB_08"
+],
+"baseline_bin": 15,
+"baseline_deg": 15.2,
+"set_id": "pair042"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_01",
+"walkB_09"
+],
+"baseline_bin": 15,
+"baseline_deg": 15.2,
+"set_id": "pair043"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_02",
+"walkB_10"
+],
+"baseline_bin": 15,
+"baseline_deg": 15.2,
+"set_id": "pair044"
+},
+{
+"kind": "pair",
+"views": [
+"walkC_00",
+"walkC_08"
+],
+"baseline_bin": 15,
+"baseline_deg": 15.3,
+"set_id": "pair045"
+},
+{
+"kind": "pair",
+"views": [
+"walkC_01",
+"walkC_09"
+],
+"baseline_bin": 15,
+"baseline_deg": 15.3,
+"set_id": "pair046"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_03",
+"walkB_11"
+],
+"baseline_bin": 15,
+"baseline_deg": 15.3,
+"set_id": "pair047"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_00",
+"walkB_16"
+],
+"baseline_bin": 30,
+"baseline_deg": 30.5,
+"set_id": "pair048"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_01",
+"walkB_17"
+],
+"baseline_bin": 30,
+"baseline_deg": 30.5,
+"set_id": "pair049"
+},
+{
+"kind": "pair",
+"views": [
+"walkC_00",
+"walkC_16"
+],
+"baseline_bin": 30,
+"baseline_deg": 30.5,
+"set_id": "pair050"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_02",
+"walkB_18"
+],
+"baseline_bin": 30,
+"baseline_deg": 30.5,
+"set_id": "pair051"
+},
+{
+"kind": "pair",
+"views": [
+"walkC_01",
+"walkC_17"
+],
+"baseline_bin": 30,
+"baseline_deg": 30.5,
+"set_id": "pair052"
+},
+{
+"kind": "pair",
+"views": [
+"walkB_03",
+"walkB_19"
+],
+"baseline_bin": 30,
+"baseline_deg": 30.5,
+"set_id": "pair053"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r220_h155_a-005",
+"ring_r220_h155_a+060"
+],
+"baseline_bin": 60,
+"baseline_deg": 60.1,
+"set_id": "pair054"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r220_h155_a-045",
+"ring_r220_h155_a+020"
+],
+"baseline_bin": 60,
+"baseline_deg": 59.4,
+"set_id": "pair055"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r220_h120_a+010",
+"ring_r220_h120_a+070"
+],
+"baseline_bin": 60,
+"baseline_deg": 58.8,
+"set_id": "pair056"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r130_h155_a+035",
+"ring_r130_h155_a+105"
+],
+"baseline_bin": 60,
+"baseline_deg": 57.5,
+"set_id": "pair057"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r220_h120_a-045",
+"ring_r220_h120_a+020"
+],
+"baseline_bin": 60,
+"baseline_deg": 62.5,
+"set_id": "pair058"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r130_h155_a-005",
+"ring_r130_h155_a+065"
+],
+"baseline_bin": 60,
+"baseline_deg": 56.9,
+"set_id": "pair059"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r130_h120_a-035",
+"ring_r130_h120_a+065"
+],
+"baseline_bin": 90,
+"baseline_deg": 90.3,
+"set_id": "pair060"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r220_h120_a-035",
+"ring_r220_h120_a+060"
+],
+"baseline_bin": 90,
+"baseline_deg": 91.7,
+"set_id": "pair061"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r220_h120_a-025",
+"ring_r220_h120_a+070"
+],
+"baseline_bin": 90,
+"baseline_deg": 92.0,
+"set_id": "pair062"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r130_h120_a+010",
+"ring_r130_h120_a+105"
+],
+"baseline_bin": 90,
+"baseline_deg": 87.5,
+"set_id": "pair063"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r220_h155_a-025",
+"ring_r220_h155_a+070"
+],
+"baseline_bin": 90,
+"baseline_deg": 86.6,
+"set_id": "pair064"
+},
+{
+"kind": "pair",
+"views": [
+"ring_r220_h155_a-035",
+"ring_r220_h155_a+060"
+],
+"baseline_bin": 90,
+"baseline_deg": 86.3,
+"set_id": "pair065"
+},
+{
+"kind": "multi",
+"views": [
+"walkA_00",
+"walkA_14",
+"walkA_29"
+],
+"set_id": "multi066"
+},
+{
+"kind": "multi",
+"views": [
+"walkA_00",
+"walkA_07",
+"walkA_14",
+"walkA_22",
+"walkA_29"
+],
+"set_id": "multi067"
+},
+{
+"kind": "multi",
+"views": [
+"walkB_00",
+"walkB_14",
+"walkB_29"
+],
+"set_id": "multi068"
+},
+{
+"kind": "multi",
+"views": [
+"walkB_00",
+"walkB_07",
+"walkB_14",
+"walkB_22",
+"walkB_29"
+],
+"set_id": "multi069"
+},
+{
+"kind": "multi",
+"views": [
+"walkC_00",
+"walkC_14",
+"walkC_29"
+],
+"set_id": "multi070"
+},
+{
+"kind": "multi",
+"views": [
+"walkC_00",
+"walkC_07",
+"walkC_14",
+"walkC_22",
+"walkC_29"
+],
+"set_id": "multi071"
+},
+{
+"kind": "multi",
+"views": [
+"ring_r130_h120_a-035",
+"ring_r130_h120_a-005",
+"ring_r130_h120_a+025",
+"ring_r130_h120_a+050",
+"ring_r130_h120_a+105"
+],
+"set_id": "multi072"
+},
+{
+"kind": "multi",
+"views": [
+"ring_r130_h155_a-035",
+"ring_r130_h155_a-005",
+"ring_r130_h155_a+025",
+"ring_r130_h155_a+050",
+"ring_r130_h155_a+105"
+],
+"set_id": "multi073"
+},
+{
+"kind": "multi",
+"views": [
+"ring_r220_h120_a-045",
+"ring_r220_h120_a-025",
+"ring_r220_h120_a-005",
+"ring_r220_h120_a+020",
+"ring_r220_h120_a+070"
+],
+"set_id": "multi074"
+},
+{
+"kind": "multi",
+"views": [
+"ring_r220_h155_a-045",
+"ring_r220_h155_a-025",
+"ring_r220_h155_a-005",
+"ring_r220_h155_a+020",
+"ring_r220_h155_a+070"
+],
+"set_id": "multi075"
+}
+]

@@ -1,0 +1,21 @@
+{
+ "klucz": "handal_000010",
+ "zbior": "handal",
+ "obj_id": 10,
+ "nazwa": "slotted spoon, green, wooden handle",
+ "kategoria": "spoon",
+ "opis_obiektu": "",
+ "punkty": [
+  {
+   "nazwa": "end of a wooden handle",
+   "opis": "end of a wooden handle of a spoon",
+   "xyz_mm": [
+    -0.44319704996391773,
+    1.6878680788154354,
+    -156.74221242811493
+   ]
+  }
+ ],
+ "uklad": "model BOP, mm",
+ "czas": "2026-10-29T18:55:45.207Z"
+}

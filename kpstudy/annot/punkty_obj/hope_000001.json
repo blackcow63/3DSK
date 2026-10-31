@@ -1,0 +1,30 @@
+{
+ "klucz": "hope_000001",
+ "zbior": "hope",
+ "obj_id": 1,
+ "nazwa": "AlphabetSoup",
+ "kategoria": "can",
+ "opis_obiektu": "",
+ "punkty": [
+  {
+   "nazwa": "can lid",
+   "opis": "a center of an alphabet soup can lid",
+   "xyz_mm": [
+    -2.380294395228834,
+    0.907903727064785,
+    33.696652497535965
+   ]
+  },
+  {
+   "nazwa": "nutrition table",
+   "opis": "a center of nutrition table on a can of alphabet soup",
+   "xyz_mm": [
+    -35.17674739489786,
+    1.704276865292273,
+    -0.8940950975722568
+   ]
+  }
+ ],
+ "uklad": "model BOP, mm",
+ "czas": "2026-10-29T18:50:33.835Z"
+}

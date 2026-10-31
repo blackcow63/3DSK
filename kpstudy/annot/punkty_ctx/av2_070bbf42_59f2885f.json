@@ -1,0 +1,394 @@
+{
+ "klucz": "av2_070bbf42_59f2885f",
+ "zbior": "av2",
+ "log": "070bbf42-31d3-3aa9-aca4-c262afc9077d",
+ "track": "59f2885f-772d-4ff1-8860-b8a8d877d326",
+ "kategoria": "car",
+ "opis_obiektu": "",
+ "okno_ns": null,
+ "punkty": [
+  {
+   "nazwa": "center_of_the_left_headlight_of_a_car",
+   "opis": "center of the left headlight of a car",
+   "xyz_m": [
+    2.1071034428002764,
+    0.8207322656296705,
+    -0.2899849379442545
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 347.17,
+     "v": 357.84
+    },
+    {
+     "podglad": 3,
+     "u": 294.77,
+     "v": 348.53
+    }
+   ],
+   "residua_px": {
+    "1": 1.5516812860090425,
+    "3": 1.6471137744379583
+   },
+   "kat_st": 19.07570502381553,
+   "lidar_cm": 2.824225150995457
+  },
+  {
+   "nazwa": "center_of_the_right_headlight_of_a_car",
+   "opis": "center of the right headlight of a car",
+   "xyz_m": [
+    2.172366723941374,
+    -0.455053423568659,
+    -0.2757391906601881
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 189.98,
+     "v": 344.26
+    },
+    {
+     "podglad": 3,
+     "u": 174.77,
+     "v": 333.96
+    }
+   ],
+   "residua_px": {
+    "1": 0.06131693174298596,
+    "3": 0.0677147715358144
+   },
+   "kat_st": 20.083684381400623,
+   "lidar_cm": 2.7639558744765753
+  },
+  {
+   "nazwa": "center_of_the_left_taillight_of_a_car",
+   "opis": "center of the left taillight of a car",
+   "xyz_m": [
+    -2.2985924999090157,
+    0.6642412057837456,
+    -0.06123806366269831
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 380.16,
+     "v": 320.97
+    },
+    {
+     "podglad": 4,
+     "u": 325.82,
+     "v": 325.24
+    },
+    {
+     "podglad": 0,
+     "u": 448.08,
+     "v": 320.97
+    }
+   ],
+   "residua_px": {
+    "0": 2.4829650520619557,
+    "2": 6.238801990388259,
+    "4": 4.06950371678735
+   },
+   "kat_st": 37.49309798331373,
+   "lidar_cm": 0.2959722739350006
+  },
+  {
+   "nazwa": "tip_of_the_left_side_mirror_of_a_car",
+   "opis": "tip of the left side mirror of a car",
+   "xyz_m": [
+    0.6076319583243959,
+    1.1315319882708925,
+    0.12831474432331577
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 465.83,
+     "v": 284.78
+    },
+    {
+     "podglad": 4,
+     "u": 135.5,
+     "v": 284.07
+    }
+   ],
+   "residua_px": {
+    "1": 0.6818319154086426,
+    "4": 0.7340437184682674
+   },
+   "kat_st": 36.93178846938111,
+   "lidar_cm": 2.7324727083846136
+  },
+  {
+   "nazwa": "center_of_the_front_left_wheel_of_a_car",
+   "opis": "center of the front left wheel of a car",
+   "xyz_m": [
+    1.3696605859775965,
+    1.034636817377132,
+    -0.5993402671266804
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 417.35,
+     "v": 389.93
+    },
+    {
+     "podglad": 4,
+     "u": 127.18,
+     "v": 358.26
+    },
+    {
+     "podglad": 2,
+     "u": 128.92,
+     "v": 344.61
+    }
+   ],
+   "residua_px": {
+    "1": 1.8830386922604079,
+    "2": 2.8872353503849717,
+    "4": 2.461044614638988
+   },
+   "kat_st": 46.20972111175753,
+   "lidar_cm": 1.4798853337465008
+  },
+  {
+   "nazwa": "center_of_the_rear_left_wheel_of_a_car",
+   "opis": "center of the rear left wheel of a car",
+   "xyz_m": [
+    -1.2874800182900912,
+    0.965981787624659,
+    -0.5902928540664572
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 270.29,
+     "v": 382.35
+    },
+    {
+     "podglad": 4,
+     "u": 237.43,
+     "v": 385.99
+    },
+    {
+     "podglad": 0,
+     "u": 316.12,
+     "v": 373.37
+    }
+   ],
+   "residua_px": {
+    "0": 0.757212270393454,
+    "2": 1.2548387111324717,
+    "4": 1.337376417141969
+   },
+   "kat_st": 29.18265653841349,
+   "lidar_cm": 2.968810615651126
+  },
+  {
+   "nazwa": "center_of_the_rear_license_plate_of_a_car",
+   "opis": "center of the rear license plate of a car",
+   "xyz_m": [
+    -2.2883848461097958,
+    0.04155153080351867,
+    -0.10460787284310019
+   ],
+   "klikniecia": [
+    {
+     "podglad": 4,
+     "u": 411.46,
+     "v": 323.74
+    },
+    {
+     "podglad": 2,
+     "u": 441.66,
+     "v": 321.55
+    }
+   ],
+   "residua_px": {
+    "2": 2.0254063118350216,
+    "4": 2.0041587603622713
+   },
+   "kat_st": 12.10875949536957,
+   "lidar_cm": 0.1343366935840687
+  },
+  {
+   "nazwa": "handle_of_the_front_left_door_of_a_car",
+   "opis": "handle of the front left door of a car",
+   "xyz_m": [
+    0.11989166811178702,
+    0.9328066948994879,
+    -0.06690790330594722
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 194.14,
+     "v": 301.09
+    },
+    {
+     "podglad": 4,
+     "u": 179.99,
+     "v": 308.15
+    }
+   ],
+   "residua_px": {
+    "2": 0.108561920732825,
+    "4": 0.10388427598039213
+   },
+   "kat_st": 6.653925355400684,
+   "lidar_cm": 1.9883805061986604
+  },
+  {
+   "nazwa": "center_of_the_top_edge_of_the_windshield_of_a_car",
+   "opis": "center of the top edge of the windshield of a car",
+   "xyz_m": [
+    0.6414179125904005,
+    0.2103391396600754,
+    0.41124928159063784
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 361.21,
+     "v": 248.41
+    },
+    {
+     "podglad": 3,
+     "u": 361.82,
+     "v": 242.72
+    }
+   ],
+   "residua_px": {
+    "1": 0.723702909282386,
+    "3": 0.851702794844911
+   },
+   "kat_st": 14.193922417120483,
+   "lidar_cm": 7.262559843169597
+  },
+  {
+   "nazwa": "center_of_the_top_edge_of_the_rear_window_of_a_car",
+   "opis": "center of the top edge of the rear window of a car",
+   "xyz_m": [
+    -1.2662919528618506,
+    0.10863234290880028,
+    0.4791579809018972
+   ],
+   "klikniecia": [
+    {
+     "podglad": 4,
+     "u": 344.15,
+     "v": 244.99
+    },
+    {
+     "podglad": 0,
+     "u": 379.99,
+     "v": 234.66
+    }
+   ],
+   "residua_px": {
+    "0": 1.007971088732157,
+    "4": 0.9224228823277507
+   },
+   "kat_st": 30.277801457679605,
+   "lidar_cm": 1.9643583282474608
+  },
+  {
+   "nazwa": "center_of_the_roof_of_a_car",
+   "opis": "center of the roof of a car",
+   "xyz_m": [
+    -0.7643725330229025,
+    0.24455104979579512,
+    0.5442411151235084
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 431.93,
+     "v": 230.32
+    },
+    {
+     "podglad": 4,
+     "u": 305.07,
+     "v": 234.79
+    },
+    {
+     "podglad": 0,
+     "u": 325.22,
+     "v": 226.01
+    }
+   ],
+   "residua_px": {
+    "0": 2.5737448801836464,
+    "1": 2.168654364811361,
+    "4": 3.4570816022488184
+   },
+   "kat_st": 70.81587581554265,
+   "lidar_cm": 1.7730022840349156
+  },
+  {
+   "nazwa": "logo_on_the_front_of_a_car",
+   "opis": "logo on the front of a car",
+   "xyz_m": [
+    2.332874352262874,
+    0.15759317316087623,
+    -0.32817339444906407
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 248.81,
+     "v": 358.7
+    },
+    {
+     "podglad": 3,
+     "u": 208.41,
+     "v": 352.49
+    }
+   ],
+   "residua_px": {
+    "1": 0.5939682262276968,
+    "3": 0.6356670811037953
+   },
+   "kat_st": 20.64573292580196,
+   "lidar_cm": 1.3242260329228381
+  },
+  {
+   "nazwa": "logo_on_the_rear_of_a_car",
+   "opis": "logo on the rear of a car",
+   "xyz_m": [
+    -2.2721968896199174,
+    0.06552743891404766,
+    0.08003567797158352
+   ],
+   "klikniecia": [
+    {
+     "podglad": 4,
+     "u": 406.75,
+     "v": 300.55
+    },
+    {
+     "podglad": 0,
+     "u": 487.27,
+     "v": 290.24
+    },
+    {
+     "podglad": 2,
+     "u": 437.86,
+     "v": 296.44
+    }
+   ],
+   "residua_px": {
+    "0": 0.5234226534883055,
+    "2": 0.6141554883852776,
+    "4": 1.1070235273971532
+   },
+   "kat_st": 37.57744339342874,
+   "lidar_cm": 1.1058971866577758
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T11:02:35.539Z"
+}

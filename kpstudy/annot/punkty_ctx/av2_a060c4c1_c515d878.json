@@ -1,0 +1,67 @@
+{
+ "klucz": "av2_a060c4c1_c515d878",
+ "zbior": "av2",
+ "log": "a060c4c1-b9fc-39c1-9d30-d93a124c9066",
+ "track": "c515d878-ebcd-4c38-a11d-9dbb33a4398b",
+ "kategoria": "bollard",
+ "opis_obiektu": "",
+ "okno_ns": null,
+ "punkty": [
+  {
+   "nazwa": "center_of_the_top_of_a_bollard",
+   "opis": "center of the top of a bollard",
+   "xyz_m": [
+    -0.07814229146432762,
+    0.011397934156276416,
+    0.39158402268771486
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 316.12,
+     "v": 115.27
+    },
+    {
+     "podglad": 2,
+     "u": 316.12,
+     "v": 111.39
+    }
+   ],
+   "residua_px": {
+    "1": 0.8161289091662686,
+    "2": 0.8306048321517769
+   },
+   "kat_st": 45.05262646484005,
+   "lidar_cm": 1.6988364260217603
+  },
+  {
+   "nazwa": "base_of_a_bollard_where_it_meets_the_ground",
+   "opis": "base of a bollard where it meets the ground",
+   "xyz_m": [
+    -0.08526095574599951,
+    0.014717196982450768,
+    -0.500443323544433
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 321.94,
+     "v": 546.08
+    },
+    {
+     "podglad": 1,
+     "u": 320,
+     "v": 555.78
+    }
+   ],
+   "residua_px": {
+    "1": 0.17538243071193887,
+    "2": 0.18019525822526813
+   },
+   "kat_st": 44.1713905691296,
+   "lidar_cm": 14.353145078967705
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T10:50:18.316Z"
+}

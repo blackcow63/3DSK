@@ -1,0 +1,202 @@
+{
+ "punkty": [
+  {
+   "nazwa": "top_of_head",
+   "opis": "the top of the person's head",
+   "trojkat": [
+    411,
+    414,
+    3761
+   ],
+   "bary": [
+    0.5847,
+    0.2396,
+    0.1757
+   ]
+  },
+  {
+   "nazwa": "nose_tip",
+   "opis": "the tip of the person's nose",
+   "trojkat": [
+    331,
+    330,
+    3551
+   ],
+   "bary": [
+    0.141,
+    0.1951,
+    0.6639
+   ]
+  },
+  {
+   "nazwa": "chin",
+   "opis": "the person's chin",
+   "trojkat": [
+    3573,
+    3910,
+    3574
+   ],
+   "bary": [
+    0.272,
+    0.6212,
+    0.1069
+   ]
+  },
+  {
+   "nazwa": "neck_base_front",
+   "opis": "the base of the person's neck, at the front",
+   "trojkat": [
+    6497,
+    3060,
+    4059
+   ],
+   "bary": [
+    0.2845,
+    0.3856,
+    0.3299
+   ]
+  },
+  {
+   "nazwa": "neck_base_back",
+   "opis": "the base of the person's neck, at the back",
+   "trojkat": [
+    453,
+    829,
+    424
+   ],
+   "bary": [
+    0.1346,
+    0.4828,
+    0.3825
+   ]
+  },
+  {
+   "nazwa": "left_shoulder",
+   "opis": "the outer tip of the person's left shoulder",
+   "trojkat": [
+    1862,
+    1863,
+    1861
+   ],
+   "bary": [
+    0.2103,
+    0.3255,
+    0.4642
+   ]
+  },
+  {
+   "nazwa": "left_elbow",
+   "opis": "the tip of the person's left elbow",
+   "trojkat": [
+    1700,
+    1910,
+    1621
+   ],
+   "bary": [
+    0.4671,
+    0.4868,
+    0.0461
+   ]
+  },
+  {
+   "nazwa": "left_wrist",
+   "opis": "the back of the person's left wrist",
+   "trojkat": [
+    2208,
+    1969,
+    2241
+   ],
+   "bary": [
+    0.5217,
+    0.2078,
+    0.2705
+   ]
+  },
+  {
+   "nazwa": "left_hand_tip",
+   "opis": "the tip of the person's left hand",
+   "trojkat": [
+    2425,
+    2423,
+    2418
+   ],
+   "bary": [
+    0.0322,
+    0.9625,
+    0.0053
+   ]
+  },
+  {
+   "nazwa": "left_hip",
+   "opis": "the outer side of the person's left hip",
+   "trojkat": [
+    1794,
+    815,
+    1791
+   ],
+   "bary": [
+    0.5796,
+    0.3805,
+    0.0399
+   ]
+  },
+  {
+   "nazwa": "left_knee",
+   "opis": "the person's left kneecap",
+   "trojkat": [
+    1044,
+    1012,
+    1045
+   ],
+   "bary": [
+    0.06,
+    0.0903,
+    0.8497
+   ]
+  },
+  {
+   "nazwa": "left_ankle",
+   "opis": "the outer bone of the person's left ankle",
+   "trojkat": [
+    3207,
+    3327,
+    3204
+   ],
+   "bary": [
+    0.308,
+    0.5097,
+    0.1822
+   ]
+  },
+  {
+   "nazwa": "left_heel",
+   "opis": "the person's left heel",
+   "trojkat": [
+    3426,
+    3425,
+    3458
+   ],
+   "bary": [
+    0.0556,
+    0.5427,
+    0.4017
+   ]
+  },
+  {
+   "nazwa": "left_toe",
+   "opis": "the tip of the person's left foot",
+   "trojkat": [
+    3215,
+    3217,
+    3218
+   ],
+   "bary": [
+    0.13,
+    0.6966,
+    0.1735
+   ]
+  }
+ ],
+ "uklad": "siatka SMPL: trojkat (3 wierzchołki) + współrzędne barycentryczne",
+ "czas": "2026-10-30T08:50:56.902Z"
+}

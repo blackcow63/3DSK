@@ -1,0 +1,166 @@
+{
+ "klucz": "av2_b213af37_f165f9c3",
+ "zbior": "av2",
+ "log": "b213af37-7d89-342d-ae39-8a3c72159a01",
+ "track": "f165f9c3-124a-430c-bf42-745787b2e46e",
+ "kategoria": "bus",
+ "opis_obiektu": "",
+ "okno_ns": null,
+ "punkty": [
+  {
+   "nazwa": "center_of_the_left_headlight_of_a_bus",
+   "opis": "center of the left headlight of a bus",
+   "xyz_m": [
+    3.2933734614965613,
+    0.9619141575214729,
+    -0.5900458841881581
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 382.1,
+     "v": 400.53
+    },
+    {
+     "podglad": 4,
+     "u": 490.77,
+     "v": 393.16
+    }
+   ],
+   "residua_px": {
+    "2": 1.3027945418311873,
+    "4": 1.2650851898969455
+   },
+   "kat_st": 24.240539989596694,
+   "lidar_cm": 0.7933736741218361
+  },
+  {
+   "nazwa": "center_of_the_right_headlight_of_a_bus",
+   "opis": "center of the right headlight of a bus",
+   "xyz_m": [
+    3.4235076655844647,
+    -0.4811181870330849,
+    -0.6730605194498113
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 188.04,
+     "v": 406.36
+    },
+    {
+     "podglad": 4,
+     "u": 292.83,
+     "v": 402.86
+    }
+   ],
+   "residua_px": {
+    "2": 0.9225316608477799,
+    "4": 0.9056042443223157
+   },
+   "kat_st": 23.181262279565892,
+   "lidar_cm": 2.2531676369843203
+  },
+  {
+   "nazwa": "tip_of_the_left_side_mirror_of_a_bus",
+   "opis": "tip of the left side mirror of a bus",
+   "xyz_m": [
+    3.720434272384718,
+    1.1914421328757356,
+    -0.04709559667268745
+   ],
+   "klikniecia": [
+    {
+     "podglad": 4,
+     "u": 541.22,
+     "v": 325.24
+    },
+    {
+     "podglad": 2,
+     "u": 404.2,
+     "v": 326.69
+    }
+   ],
+   "residua_px": {
+    "2": 2.880083901197646,
+    "4": 2.770111067733011
+   },
+   "kat_st": 24.89015258038268,
+   "lidar_cm": 0.4367395611824698
+  },
+  {
+   "nazwa": "center_of_the_front_right_wheel_of_a_bus",
+   "opis": "center of the front right wheel of a bus",
+   "xyz_m": [
+    2.6051459319367036,
+    -0.8193895095599859,
+    -1.2250316095203733
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 463.6,
+     "v": 398.59
+    },
+    {
+     "podglad": 4,
+     "u": 228.79,
+     "v": 464.96
+    },
+    {
+     "podglad": 3,
+     "u": 349.11,
+     "v": 426.15
+    }
+   ],
+   "residua_px": {
+    "1": 9.028514742109147,
+    "3": 2.7926509900111056,
+    "4": 4.318189822706005
+   },
+   "kat_st": 72.49019878713702,
+   "lidar_cm": 1.100879420866415
+  },
+  {
+   "nazwa": "center_of_the_rear_right_wheel_of_a_bus",
+   "opis": "center of the rear right wheel of a bus",
+   "xyz_m": [
+    -0.9341711574405142,
+    -1.1047423125958018,
+    -1.2430674644021982
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 246.26,
+     "v": 396.65
+    },
+    {
+     "podglad": 4,
+     "u": 137.59,
+     "v": 441.67
+    },
+    {
+     "podglad": 0,
+     "u": 171.91,
+     "v": 422.39
+    },
+    {
+     "podglad": 3,
+     "u": 186.1,
+     "v": 412.57
+    }
+   ],
+   "residua_px": {
+    "0": 2.7352864471109126,
+    "1": 4.581570980719081,
+    "3": 4.042707595878362,
+    "4": 4.411605119937954
+   },
+   "kat_st": 66.91671541952728,
+   "lidar_cm": 5.40127755869484
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T10:58:40.076Z"
+}

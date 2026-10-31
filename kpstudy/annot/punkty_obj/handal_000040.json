@@ -1,0 +1,21 @@
+{
+ "klucz": "handal_000040",
+ "zbior": "handal",
+ "obj_id": 40,
+ "nazwa": "whisk, yellow wire, black handle",
+ "kategoria": "whisk",
+ "opis_obiektu": "",
+ "punkty": [
+  {
+   "nazwa": "center of yellow whisk",
+   "opis": "center of a yellow whisk",
+   "xyz_mm": [
+    -2.4430831953756087,
+    -31.413271989980508,
+    52.75744429028709
+   ]
+  }
+ ],
+ "uklad": "model BOP, mm",
+ "czas": "2026-10-29T18:57:46.525Z"
+}

@@ -1,0 +1,21 @@
+{
+ "klucz": "handal_000009",
+ "zbior": "handal",
+ "obj_id": 9,
+ "nazwa": "hammer, all black",
+ "kategoria": "hammer",
+ "opis_obiektu": "",
+ "punkty": [
+  {
+   "nazwa": "end of a handle",
+   "opis": "end of a handle of a black hammer",
+   "xyz_mm": [
+    1.1479507195431768,
+    2.837789802460167,
+    -201.79769035066008
+   ]
+  }
+ ],
+ "uklad": "model BOP, mm",
+ "czas": "2026-10-29T18:56:32.671Z"
+}

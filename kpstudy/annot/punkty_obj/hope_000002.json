@@ -1,0 +1,21 @@
+{
+ "klucz": "hope_000002",
+ "zbior": "hope",
+ "obj_id": 2,
+ "nazwa": "BBQSauce",
+ "kategoria": "bottle",
+ "opis_obiektu": "",
+ "punkty": [
+  {
+   "nazwa": "a cap of a ketchup bottle",
+   "opis": "a center of a cap of a ketchup bottle",
+   "xyz_mm": [
+    0.03483467150607999,
+    0.42890951080357814,
+    73.02054963378815
+   ]
+  }
+ ],
+ "uklad": "model BOP, mm",
+ "czas": "2026-10-29T18:51:25.282Z"
+}

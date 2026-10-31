@@ -1,0 +1,379 @@
+{
+ "klucz": "av2_070bbf42_83cc6356",
+ "zbior": "av2",
+ "log": "070bbf42-31d3-3aa9-aca4-c262afc9077d",
+ "track": "83cc6356-50eb-4279-89f1-efbfa9a316a8",
+ "kategoria": "bicycle",
+ "opis_obiektu": "",
+ "okno_ns": null,
+ "punkty": [
+  {
+   "nazwa": "left_pedal_of_a_bicycle",
+   "opis": "left pedal of a bicycle",
+   "xyz_m": [
+    -0.25349068471232655,
+    0.22766941871217317,
+    -0.3073918867557056
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 401.89,
+     "v": 393.43
+    },
+    {
+     "podglad": 2,
+     "u": 315.73,
+     "v": 394.84
+    }
+   ],
+   "residua_px": {
+    "1": 2.342700813983323,
+    "2": 2.142727511148962
+   },
+   "kat_st": 68.68245635289155,
+   "lidar_cm": 2.3495040253704893
+  },
+  {
+   "nazwa": "right_pedal_of_a_bicycle",
+   "opis": "right pedal of a bicycle",
+   "xyz_m": [
+    -0.05576271375638165,
+    -0.11396684144318714,
+    -0.544296604377991
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 308.72,
+     "v": 432.96
+    },
+    {
+     "podglad": 0,
+     "u": 363.56,
+     "v": 433.44
+    }
+   ],
+   "residua_px": {
+    "0": 2.150899250055629,
+    "1": 2.10638693473344
+   },
+   "kat_st": 42.05998221960225,
+   "lidar_cm": 3.454244553493841
+  },
+  {
+   "nazwa": "front_tip_of_a_bicycle_seat",
+   "opis": "front tip of a bicycle seat",
+   "xyz_m": [
+    -0.2022475474279728,
+    0.14912665845844444,
+    0.20964889065803266
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 381.19,
+     "v": 256.96
+    },
+    {
+     "podglad": 0,
+     "u": 380.98,
+     "v": 260.24
+    }
+   ],
+   "residua_px": {
+    "0": 1.192738516652521,
+    "1": 1.1760850342757445
+   },
+   "kat_st": 44.0083713596692,
+   "lidar_cm": 1.5793522882227955
+  },
+  {
+   "nazwa": "rear_end_of_a_bicycle_seat",
+   "opis": "rear end of a bicycle seat",
+   "xyz_m": [
+    -0.4566102112093093,
+    0.14658238471439677,
+    0.22817588481012546
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 440.48,
+     "v": 250.37
+    },
+    {
+     "podglad": 0,
+     "u": 445.8,
+     "v": 254.43
+    },
+    {
+     "podglad": 2,
+     "u": 377.92,
+     "v": 249.82
+    }
+   ],
+   "residua_px": {
+    "0": 2.1491977526986816,
+    "1": 1.9450860910467447,
+    "2": 1.2268762884072721
+   },
+   "kat_st": 68.84015740541344,
+   "lidar_cm": 0.6778078076130382
+  },
+  {
+   "nazwa": "center_of_the_front_wheel_of_a_bicycle",
+   "opis": "center of the front wheel of a bicycle",
+   "xyz_m": [
+    0.5175808163897613,
+    0.05422790952529669,
+    -0.3994210137540441
+   ],
+   "klikniecia": [
+    {
+     "podglad": 0,
+     "u": 201.97,
+     "v": 413.12
+    },
+    {
+     "podglad": 2,
+     "u": 182.78,
+     "v": 395.14
+    },
+    {
+     "podglad": 1,
+     "u": 196.89,
+     "v": 409.43
+    }
+   ],
+   "residua_px": {
+    "0": 2.2609673147085703,
+    "1": 3.2820421628814946,
+    "2": 1.323686520499892
+   },
+   "kat_st": 66.01772447164191,
+   "lidar_cm": 1.8696086515585817
+  },
+  {
+   "nazwa": "center_of_the_rear_wheel_of_a_bicycle",
+   "opis": "center of the rear wheel of a bicycle",
+   "xyz_m": [
+    -0.5960492751438983,
+    0.1004230272217395,
+    -0.39859605505633866
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 417.36,
+     "v": 428.35
+    },
+    {
+     "podglad": 1,
+     "u": 462.28,
+     "v": 406.6
+    },
+    {
+     "podglad": 0,
+     "u": 486.23,
+     "v": 402.7
+    }
+   ],
+   "residua_px": {
+    "0": 2.5227609381355127,
+    "1": 1.8386474921353402,
+    "2": 1.9391612006579604
+   },
+   "kat_st": 67.70340621212839,
+   "lidar_cm": 1.791031605125027
+  },
+  {
+   "nazwa": "left_end_of_a_bicycle_handlebar",
+   "opis": "left end of a bicycle handlebar",
+   "xyz_m": [
+    0.30349312149846536,
+    0.4828029160498519,
+    0.10826273804817883
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 144.21,
+     "v": 287.43
+    },
+    {
+     "podglad": 1,
+     "u": 302.76,
+     "v": 289.44
+    },
+    {
+     "podglad": 0,
+     "u": 224.59,
+     "v": 294.51
+    }
+   ],
+   "residua_px": {
+    "0": 8.351676483969102,
+    "1": 8.413073176076443,
+    "2": 14.005211282192825
+   },
+   "kat_st": 70.66883860171939,
+   "lidar_cm": 1.7387058039569838
+  },
+  {
+   "nazwa": "right_end_of_a_bicycle_handlebar",
+   "opis": "right end of a bicycle handlebar",
+   "xyz_m": [
+    0.44199325767133074,
+    -0.1123980277616499,
+    0.27236578664520594
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 198.3,
+     "v": 238.62
+    },
+    {
+     "podglad": 0,
+     "u": 229.92,
+     "v": 240.01
+    }
+   ],
+   "residua_px": {
+    "0": 0.5003731805706767,
+    "1": 0.4919995532926096
+   },
+   "kat_st": 43.40957318126819,
+   "lidar_cm": 2.3773747623187624
+  },
+  {
+   "nazwa": "top_of_the_head_tube_of_a_bicycle",
+   "opis": "top of the head tube of a bicycle",
+   "xyz_m": [
+    0.3354091003005982,
+    0.07250799116785853,
+    0.15718515716750878
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 217.18,
+     "v": 253.8
+    },
+    {
+     "podglad": 0,
+     "u": 243.96,
+     "v": 272.56
+    }
+   ],
+   "residua_px": {
+    "0": 0.052482456592280576,
+    "2": 0.0497373284028735
+   },
+   "kat_st": 22.88433495897986,
+   "lidar_cm": 2.521381601051909
+  },
+  {
+   "nazwa": "where_the_seat_post_enters_the_frame_of_a_bicycle",
+   "opis": "where the seat post enters the frame of a bicycle",
+   "xyz_m": [
+    -0.26911430066079844,
+    0.11654265159154488,
+    -0.004921371238444802
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 338.52,
+     "v": 306.76
+    },
+    {
+     "podglad": 1,
+     "u": 390.83,
+     "v": 313.39
+    },
+    {
+     "podglad": 0,
+     "u": 402.18,
+     "v": 311.74
+    }
+   ],
+   "residua_px": {
+    "0": 1.2903840710209933,
+    "1": 2.7458544613591633,
+    "2": 3.530733197907898
+   },
+   "kat_st": 68.22204525844842,
+   "lidar_cm": 1.3404883360924893
+  },
+  {
+   "nazwa": "bottom_of_the_front_wheel_of_a_bicycle_where_it_touches_the_ground",
+   "opis": "bottom of the front wheel of a bicycle where it touches the ground",
+   "xyz_m": [
+    0.5620175203414707,
+    0.005768906917279543,
+    -0.6926621449369458
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 186.36,
+     "v": 468.55
+    },
+    {
+     "podglad": 1,
+     "u": 182.31,
+     "v": 482.62
+    },
+    {
+     "podglad": 0,
+     "u": 191.22,
+     "v": 479
+    }
+   ],
+   "residua_px": {
+    "0": 4.999356495130765,
+    "1": 2.3131806245875155,
+    "2": 4.338698512532866
+   },
+   "kat_st": 65.0282636753453,
+   "lidar_cm": 1.8355665241679406
+  },
+  {
+   "nazwa": "bottom_of_the_rear_wheel_of_a_bicycle_where_it_touches_the_ground",
+   "opis": "bottom of the rear wheel of a bicycle where it touches the ground",
+   "xyz_m": [
+    -0.5750194750189169,
+    0.056895372889381034,
+    -0.7103489354857702
+   ],
+   "klikniecia": [
+    {
+     "podglad": 1,
+     "u": 448.25,
+     "v": 478.09
+    },
+    {
+     "podglad": 0,
+     "u": 486.56,
+     "v": 475.98
+    },
+    {
+     "podglad": 2,
+     "u": 417.03,
+     "v": 515.03
+    }
+   ],
+   "residua_px": {
+    "0": 0.5900726694545183,
+    "1": 1.2622675268619825,
+    "2": 0.6339714489458266
+   },
+   "kat_st": 66.80977852490466,
+   "lidar_cm": 1.1932886665244717
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T10:43:24.558Z"
+}

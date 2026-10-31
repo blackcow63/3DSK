@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Anotacja punktów – ulica</title>
+<style>
+  :root { --tlo:#f4f4f2; --panel:#ffffff; --tekst:#1d1d1b; --szary:#6b6b66; --akcent:#c2410c; --ok:#15803d; --zle:#b91c1c; --uwaga:#b45309; --linia:#d8d8d2; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.4 system-ui, sans-serif; background:var(--tlo); color:var(--tekst); display:grid;
+         grid-template-columns: 1fr 380px; grid-template-rows: auto 1fr; height:100vh; }
+  header { grid-column:1/3; display:flex; gap:10px; align-items:center; padding:8px 12px; background:var(--panel); border-bottom:1px solid var(--linia); flex-wrap:wrap; }
+  header select, header button { font:inherit; padding:4px 8px; }
+  #zdjecia { min-height:0; overflow:auto; background:#222; padding:4px; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:4px; align-content:start; }
+  #zdjecia.duze { grid-template-columns: minmax(0,1fr); }
+  .kadr { position:relative; }
+  .kadr canvas { width:min(100%, calc((100vh - 70px) / 2)); aspect-ratio:1; display:block; margin:0 auto; background:#000; cursor:crosshair; }
+  #zdjecia.duze .kadr canvas { width:min(100%, calc(100vh - 70px)); margin:0 auto; }
+  .kadr .et { position:absolute; left:4px; top:4px; background:rgba(0,0,0,.6); color:#fff; font-size:12px; padding:1px 6px; border-radius:4px; pointer-events:none; }
+  .kadr .res { position:absolute; right:4px; top:4px; background:rgba(0,0,0,.6); color:#fff; font-size:12px; padding:1px 6px; border-radius:4px; pointer-events:none; }
+  .kadr .przyc { position:absolute; right:4px; bottom:4px; display:flex; gap:4px; }
+  .kadr .przyc button { background:rgba(0,0,0,.65); color:#fff; border:0; border-radius:4px; font-size:12px; padding:2px 7px; }
+  #panel { background:var(--panel); border-left:1px solid var(--linia); overflow:auto; padding:10px; }
+  label { display:block; font-size:12px; color:var(--szary); margin-top:8px; }
+  input[type=text], textarea { width:100%; font:inherit; padding:5px 7px; border:1px solid var(--linia); border-radius:6px; }
+  textarea { height:52px; resize:vertical; }
+  button { cursor:pointer; }
+  .glowny { background:var(--akcent); color:#fff; border:0; border-radius:6px; padding:6px 10px; margin-top:8px; }
+  .pkt { padding:5px 8px; border:1px solid var(--linia); border-radius:6px; margin-top:4px; cursor:pointer; }
+  .pkt.aktywny { border-color:var(--akcent); box-shadow:0 0 0 2px #fed7aa; }
+  .pkt .n { font-weight:600; } .pkt .q { font-size:12px; }
+  .pkt.pusty .n { font-weight:400; }
+  .pkt button { float:right; margin-left:4px; font-size:12px; }
+  .ok { color:var(--ok); } .zle { color:var(--zle); } .uwaga { color:var(--uwaga); }
+  .zasada { background:#fff7ed; border:1px solid #fed7aa; border-radius:6px; padding:6px 8px; font-size:12px; }
+  h3 { margin:12px 0 4px; font-size:13px; }
+  summary { cursor:pointer; font-size:12px; color:var(--szary); margin-top:10px; }
+  #stan { font-weight:600; }
+</style>
+</head>
+<body>
+<header>
+  <label style="margin:0;color:inherit">Kategoria <select id="filtr"></select></label>
+  <label style="margin:0;color:inherit">Obiekt <select id="obiekty"></select></label>
+  <button id="poprzedni">◀</button><button id="nastepny">▶</button>
+  <button id="zapisz">Zapisz</button>
+  <label style="margin:0;color:inherit"><input type="checkbox" id="ramka" checked> ramka obiektu</label>
+  <span id="stan"></span>
+  <span id="info" style="color:var(--szary)"></span>
+</header>
+<div id="zdjecia"></div>
+<div id="panel">
+  <div class="zasada">Wybierz punkt z listy i kliknij <b>to samo miejsce</b> na 2–3 zdjęciach z różnych stron. <b>Kółko myszy przybliża</b>,
+    przeciąganie przesuwa, lewy klik stawia lub przestawia punkt, prawy usuwa, <b>⤢</b> powiększa kadr, <b>Enter</b> przechodzi do następnego punktu.
+    Lewy i prawy to strona samego obiektu (jak u kierowcy patrzącego do przodu, u człowieka jego lewa ręka). Punktu, którego nie ma albo nie widać, nie klikaj.
+    Przy punkcie stoi jego odległość od najbliższego pomiaru LiDAR: im mniej, tym pewniej. U ludzi miejsca, które przez sekundę się nie ruszają.</div>
+  <label>Kategoria (lista punktów zależy od niej; popraw, gdy Argoverse się pomylił, np. trash can)</label>
+  <input type="text" id="kategoria" list="kategorie">
+  <datalist id="kategorie"></datalist>
+  <label>Opis obiektu po angielsku (odróżnia go od innych w kadrze, np. "the white sedan")</label>
+  <input type="text" id="opis_obiektu">
+  <h3>Punkty do oznaczenia</h3>
+  <div id="lista"></div>
+  <details>
+    <summary>Inny punkt, spoza listy</summary>
+    <label>Opis po angielsku (to dostaje model)</label>
+    <textarea id="opis"></textarea>
+    <button class="glowny" id="dodaj">Dodaj punkt i klikaj na zdjęciach</button>
+  </details>
+</div>
+
+<script>
+const el = id => document.getElementById(id);
+const B = 640;                                   // bok wycinka: K i kliknięcia są w tych współrzędnych
+const Z_MAKS = 16;
+const LIDAR_PEWNE = 3, LIDAR_BLISKO = 8;         // cm od najbliższego pomiaru
+let obiekty = [], meta = null, stan = null, aktywny = -1, zmiany = false, kadry = [], slownik = {}, duzy = -1, chmura = null, ciag = null;
+async function json(url) { const r = await fetch(url); if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); }
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+
+// ---------- geometria: X_kam = R X_obj + t; K wycinka ----------
+const mv = (M, v) => [0, 1, 2].map(i => M[i][0] * v[0] + M[i][1] * v[1] + M[i][2] * v[2]);
+const mtv = (M, v) => [0, 1, 2].map(i => M[0][i] * v[0] + M[1][i] * v[1] + M[2][i] * v[2]);
+function rzut(p, X) {
+  const c = mv(p.R, X).map((x, i) => x + p.t_m[i]);
+  if (c[2] <= 0.1) return null;
+  return [p.K[0][0] * c[0] / c[2] + p.K[0][2], p.K[1][1] * c[1] / c[2] + p.K[1][2]];
+}
+function promien(p, u, v) {
+  const o = mtv(p.R, p.t_m).map(x => -x);                             // środek kamery w układzie obiektu
+  const d = mtv(p.R, [(u - p.K[0][2]) / p.K[0][0], (v - p.K[1][2]) / p.K[1][1], 1]);
+  const n = Math.hypot(...d); return [o, d.map(x => x / n)];
+}
+function rozwiaz3(A, b) {                                              // eliminacja Gaussa 3x3
+  const M = A.map((r, i) => [...r, b[i]]);
+  for (let i = 0; i < 3; i++) {
+    let m = i; for (let k = i + 1; k < 3; k++) if (Math.abs(M[k][i]) > Math.abs(M[m][i])) m = k;
+    [M[i], M[m]] = [M[m], M[i]]; if (Math.abs(M[i][i]) < 1e-12) return null;
+    for (let k = 0; k < 3; k++) if (k !== i) { const f = M[k][i] / M[i][i]; for (let j = i; j < 4; j++) M[k][j] -= f * M[i][j]; }
+  }
+  return [0, 1, 2].map(i => M[i][3] / M[i][i]);
+}
+function odlLidar(X) {                                                 // cm do najbliższego punktu LiDAR
+  if (!chmura) return null;
+  let m = Infinity;
+  for (let i = 0; i < chmura.length; i += 3) {
+    const a = chmura[i] - X[0], b = chmura[i + 1] - X[1], c = chmura[i + 2] - X[2], d = a * a + b * b + c * c;
+    if (d < m) m = d;
+  }
+  return m === Infinity ? null : Math.sqrt(m) * 100;
+}
+function trianguluj(pt) {
+  const kl = pt.klikniecia.filter(k => meta.podglady[k.podglad]);
+  pt.xyz_m = null; pt.residua_px = {}; pt.kat_st = 0; pt.lidar_cm = null;
+  if (kl.length < 2) return;
+  const A = [[0,0,0],[0,0,0],[0,0,0]], b = [0, 0, 0], prom = [];
+  for (const k of kl) {
+    const [o, d] = promien(meta.podglady[k.podglad], k.u, k.v); prom.push(d);
+    for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) { const P = (i === j ? 1 : 0) - d[i] * d[j]; A[i][j] += P; b[i] += P * o[j]; }
+  }
+  let X = rozwiaz3(A, b); if (!X) return;
+  // doprecyzowanie Gaussa-Newtona na błędzie w pikselach
+  const res = X => kl.flatMap(k => { const q = rzut(meta.podglady[k.podglad], X); return q ? [q[0] - k.u, q[1] - k.v] : [1e3, 1e3]; });
+  for (let it = 0; it < 8; it++) {
+    const r0 = res(X), J = [0, 1, 2].map(j => { const h = 1e-4, Y = X.slice(); Y[j] += h; return res(Y).map((r, i) => (r - r0[i]) / h); });
+    const JtJ = [0, 1, 2].map(a => [0, 1, 2].map(c => J[a].reduce((s, x, i) => s + x * J[c][i], 0)));
+    const Jtr = [0, 1, 2].map(a => J[a].reduce((s, x, i) => s + x * r0[i], 0));
+    const dx = rozwiaz3(JtJ, Jtr); if (!dx) break;
+    X = X.map((x, i) => x - dx[i]); if (Math.hypot(...dx) < 1e-6) break;
+  }
+  pt.xyz_m = X;
+  for (const k of kl) { const q = rzut(meta.podglady[k.podglad], X); pt.residua_px[k.podglad] = q ? Math.hypot(q[0] - k.u, q[1] - k.v) : 999; }
+  let kat = 0; for (let i = 0; i < prom.length; i++) for (let j = i + 1; j < prom.length; j++)
+    kat = Math.max(kat, Math.acos(Math.min(1, Math.abs(prom[i].reduce((s, x, k) => s + x * prom[j][k], 0)))) * 180 / Math.PI);
+  pt.kat_st = kat;
+  pt.lidar_cm = odlLidar(X);
+}
+function ocena(pt) {
+  if (!pt.klikniecia.length) return ['', ''];
+  if (!pt.xyz_m) return ['zle', 'kliknij na jeszcze jednym zdjęciu'];
+  const r = Math.max(...Object.values(pt.residua_px));
+  if (pt.kat_st < 4) return ['zle', 'za mała baza (' + pt.kat_st.toFixed(1) + '°): kliknij na zdjęciu z innej strony'];
+  if (r > 6) return ['zle', 'kliknięcia się nie zgadzają (do ' + r.toFixed(1) + ' px)'];
+  const opis = pt.klikniecia.length + ' klik., do ' + r.toFixed(1) + ' px, baza ' + pt.kat_st.toFixed(0) + '°';
+  const d = pt.lidar_cm;
+  if (d === null) return ['uwaga', opis + ' · brak pomiaru LiDAR'];
+  const t = opis + ' · LiDAR ' + d.toFixed(1) + ' cm';
+  return d <= LIDAR_PEWNE ? ['ok', t] : d <= LIDAR_BLISKO ? ['uwaga', t + ', sprawdź'] : ['zle', t + ', poza zmierzoną powierzchnią'];
+}
+
+// ---------- rysowanie: współrzędne wycinka, widok (ox, oy, z) ----------
+function dopasuj(o) {                             // bufor płótna = piksele ekranu, żeby przybliżenie było ostre
+  const r = o.canvas.getBoundingClientRect();
+  if (!r.width) return 0;
+  const w = Math.round(r.width * (window.devicePixelRatio || 1));
+  if (o.canvas.width !== w) { o.canvas.width = w; o.canvas.height = w; }
+  return w;
+}
+function rysuj(k) {
+  const o = kadry[k]; if (!o.img.complete || !o.img.naturalWidth) return;
+  const w = dopasuj(o); if (!w) return;
+  const c = o.canvas, ctx = c.getContext('2d'), s = o.z * w / B;
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, w, w);
+  ctx.setTransform(s, 0, 0, s, -o.ox * s, -o.oy * s);
+  ctx.imageSmoothingQuality = 'high'; ctx.drawImage(o.img, 0, 0, B, B);
+  const px = (window.devicePixelRatio || 1) / s;  // jeden piksel ekranu we współrzędnych wycinka: znaczki mają stały rozmiar
+  const p = meta.podglady[k];
+  if (el('ramka').checked) {
+    const [l, wy, h] = meta.wymiary_m.map(x => x / 2);
+    const P = []; for (const sx of [-1, 1]) for (const sy of [-1, 1]) for (const sz of [-1, 1]) P.push(rzut(p, [sx * l, sy * wy, sz * h]));
+    const E = [[0,1],[0,2],[1,3],[2,3],[4,5],[4,6],[5,7],[6,7],[0,4],[1,5],[2,6],[3,7]];
+    ctx.strokeStyle = 'rgba(34,197,94,.55)'; ctx.lineWidth = 1.5 * px;
+    for (const [a, b] of E) if (P[a] && P[b]) { ctx.beginPath(); ctx.moveTo(...P[a]); ctx.lineTo(...P[b]); ctx.stroke(); }
+  }
+  const r = 7 * px;
+  stan.punkty.forEach((pt, i) => {
+    const akt = i === aktywny;
+    if (pt.xyz_m) {
+      const q = rzut(p, pt.xyz_m);
+      if (q) {
+        ctx.beginPath(); ctx.arc(q[0], q[1], akt ? 1.6 * r : r, 0, 2 * Math.PI);
+        ctx.lineWidth = (akt ? 3 : 2) * px; ctx.strokeStyle = akt ? '#22c55e' : '#facc15'; ctx.stroke();
+        ctx.font = 'bold ' + 1.8 * r + 'px system-ui'; ctx.lineWidth = 3 * px; ctx.strokeStyle = '#000'; ctx.fillStyle = '#fff';
+        ctx.strokeText(String(i + 1), q[0] + 1.8 * r, q[1] - r); ctx.fillText(String(i + 1), q[0] + 1.8 * r, q[1] - r);
+      }
+    }
+    if (akt) for (const kk of pt.klikniecia) if (kk.podglad === k) {
+      ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 2 * px; ctx.beginPath();
+      ctx.moveTo(kk.u - r, kk.v); ctx.lineTo(kk.u + r, kk.v); ctx.moveTo(kk.u, kk.v - r); ctx.lineTo(kk.u, kk.v + r); ctx.stroke();
+    }
+  });
+  const pt = stan.punkty[aktywny];
+  o.res.textContent = pt && pt.residua_px && pt.residua_px[k] !== undefined ? pt.residua_px[k].toFixed(1) + ' px' : '';
+  o.res.style.display = o.res.textContent ? 'block' : 'none';
+  o.zoom.textContent = o.z.toFixed(1).replace('.', ',') + '×';
+}
+
+function odswiez() {
+  const lista = el('lista'); lista.innerHTML = '';
+  stan.punkty.forEach((pt, i) => {
+    const [klasa, txt] = ocena(pt);
+    const d = document.createElement('div'); d.className = 'pkt' + (i === aktywny ? ' aktywny' : '') + (pt.klikniecia.length ? '' : ' pusty');
+    const wyczysc = pt.klikniecia.length || pt.wlasny ? '<button data-a="usun">usuń</button>' : '';
+    d.innerHTML = wyczysc + '<div class="n">' + (i + 1) + '. ' + pt.opis + '</div>' + (txt ? '<div class="q ' + klasa + '">' + txt + '</div>' : '');
+    d.onclick = ev => {
+      if (ev.target.dataset.a === 'usun') {
+        if (!confirm('Usunąć kliknięcia punktu „' + pt.opis + '”?')) return;
+        pt.klikniecia = []; trianguluj(pt); zmiany = true;
+        if (pt.wlasny) { stan.punkty.splice(i, 1); aktywny = pierwszyWolny(); }
+      } else aktywny = i;
+      odswiez();
+    };
+    lista.appendChild(d);
+  });
+  kadry.forEach((_, k) => rysuj(k));
+  const akt = lista.querySelector('.aktywny'); if (akt) akt.scrollIntoView({ block:'nearest' });
+  el('stan').textContent = (zmiany ? 'niezapisane · ' : '') + stan.punkty.filter(p => p.xyz_m).length + '/' + stan.punkty.length + ' pkt';
+}
+function pierwszyWolny() { return stan.punkty.findIndex(p => !p.klikniecia.length); }
+function nastepnyPunkt() {
+  const n = stan.punkty.length;
+  for (let d = 1; d <= n; d++) { const i = (aktywny + d) % n; if (!stan.punkty[i].klikniecia.length) { aktywny = i; odswiez(); return; } }
+}
+function zbudujPunkty() {                         // lista z kategorii + to, co już kliknięto spoza niej
+  const wzor = slownik[el('kategoria').value.trim().toLowerCase()] || [], stare = stan.punkty;
+  const nowe = wzor.map(opis => stare.find(p => p.opis === opis) || { nazwa: slug(opis), opis, klikniecia: [], xyz_m: null, residua_px: {}, kat_st: 0, lidar_cm: null });
+  stare.filter(p => !wzor.includes(p.opis) && (p.klikniecia.length || p.wlasny)).forEach(p => nowe.push(p));
+  stan.punkty = nowe; aktywny = pierwszyWolny();
+}
+
+function wspolrzedne(o, e) {
+  const r = o.canvas.getBoundingClientRect();
+  return [o.ox + (e.clientX - r.left) / r.width * B / o.z, o.oy + (e.clientY - r.top) / r.height * B / o.z];
+}
+function ogranicz(o) { const m = B - B / o.z; o.ox = Math.min(m, Math.max(0, o.ox)); o.oy = Math.min(m, Math.max(0, o.oy)); }
+function kolko(k, e) {
+  e.preventDefault();
+  const o = kadry[k], r = o.canvas.getBoundingClientRect(), [u, v] = wspolrzedne(o, e);
+  o.z = Math.min(Z_MAKS, Math.max(1, o.z * Math.exp(-e.deltaY * 0.003)));
+  o.ox = u - (e.clientX - r.left) / r.width * B / o.z; o.oy = v - (e.clientY - r.top) / r.height * B / o.z;
+  ogranicz(o); rysuj(k);
+}
+function klik(k, e, usun) {
+  e.preventDefault();
+  const pt = stan.punkty[aktywny]; if (!pt) return;
+  const [u, v] = wspolrzedne(kadry[k], e);
+  pt.klikniecia = pt.klikniecia.filter(x => x.podglad !== k);
+  if (!usun) pt.klikniecia.push({ podglad: k, u: +u.toFixed(2), v: +v.toFixed(2) });
+  trianguluj(pt); zmiany = true; odswiez();
+}
+window.addEventListener('mousemove', e => {
+  if (!ciag) return;
+  const o = kadry[ciag.k], r = o.canvas.getBoundingClientRect(), dx = e.clientX - ciag.x, dy = e.clientY - ciag.y;
+  if (o.z > 1 && Math.hypot(dx, dy) > 4) ciag.ruch = true;
+  if (ciag.ruch) { o.ox = ciag.ox - dx / r.width * B / o.z; o.oy = ciag.oy - dy / r.height * B / o.z; ogranicz(o); rysuj(ciag.k); }
+});
+window.addEventListener('mouseup', e => {
+  if (!ciag) return;
+  const c = ciag; ciag = null;
+  if (!c.ruch && e.target === kadry[c.k].canvas) klik(c.k, e, false);
+});
+
+function pokazDuzy(k) {
+  duzy = duzy === k ? -1 : k;
+  el('zdjecia').classList.toggle('duze', duzy >= 0);
+  kadry.forEach((o, i) => o.div.style.display = duzy < 0 || i === duzy ? '' : 'none');
+  kadry.forEach((_, i) => rysuj(i));
+}
+
+// ---------- dane ----------
+async function policzZrobione() {
+  for (const o of obiekty) {
+    try { o.zrobione = (await json('punkty_ctx/' + o.klucz + '.json')).punkty.length; } catch (e) { o.zrobione = 0; }
+  }
+}
+function opcje() {
+  const f = el('filtr').value, sel = el('obiekty'), v = sel.value; sel.innerHTML = '';
+  obiekty.filter(o => !f || o.kategoria === f).forEach(o => { const op = document.createElement('option'); op.value = o.klucz;
+    op.textContent = (o.zrobione ? '✓ ' : '') + o.nazwa + ' · ' + o.log; sel.appendChild(op); });
+  if (v && [...sel.options].some(o => o.value === v)) sel.value = v;
+}
+
+async function wczytaj(klucz) {
+  if (zmiany && meta && !confirm('Są niezapisane zmiany. Przejść mimo to?')) { el('obiekty').value = meta.klucz; return; }
+  meta = await json('kontekst/' + klucz + '/meta.json');
+  chmura = null;
+  if (meta.lidar) { const r = await fetch('kontekst/' + klucz + '/' + meta.lidar.plik); if (r.ok) chmura = new Float32Array(await r.arrayBuffer()); }
+  try { stan = await json('punkty_ctx/' + klucz + '.json'); } catch (e) { stan = { punkty: [] }; }
+  stan.punkty = (stan.punkty || []).map(p => ({ ...p, klikniecia: p.klikniecia || [] }));
+  stan.punkty.forEach(trianguluj);
+  el('kategoria').value = stan.kategoria || meta.kategoria || ''; el('opis_obiektu').value = stan.opis_obiektu || '';
+  zbudujPunkty();
+  zmiany = false; duzy = -1; el('zdjecia').classList.remove('duze');
+  el('info').textContent = meta.kategoria + ' · log ' + meta.log.slice(0, 8) + ' · na ' + meta.ujecia.length + ' ujęciach' +
+                           (meta.okno_ns ? ' (okno 1,2 s)' : '');
+  const zd = el('zdjecia'); zd.innerHTML = ''; kadry = [];
+  const t0 = Math.min(...meta.podglady.map(p => p.t));
+  meta.podglady.forEach((p, k) => {
+    const div = document.createElement('div'); div.className = 'kadr';
+    const c = document.createElement('canvas');
+    const et = document.createElement('div'); et.className = 'et'; et.textContent = (k + 1) + ' · ' + p.kam.replace('ring_', '') + ' · ' + ((p.t - t0) / 1e9).toFixed(1) + ' s';
+    const res = document.createElement('div'); res.className = 'res';
+    const przyc = document.createElement('div'); przyc.className = 'przyc';
+    const zoom = document.createElement('button'); zoom.title = 'wróć do całego kadru';
+    const pow = document.createElement('button'); pow.textContent = '⤢'; pow.title = 'powiększ kadr (Esc wraca)';
+    przyc.append(zoom, pow);
+    div.append(c, et, res, przyc); zd.appendChild(div);
+    const img = new Image(); const o = { canvas: c, img, div, res, zoom, z: 1, ox: 0, oy: 0 }; kadry.push(o);
+    img.onload = () => rysuj(k); img.src = 'kontekst/' + klucz + '/' + (p.hd || p.plik);
+    c.addEventListener('mousedown', e => { if (e.button === 0) ciag = { k, x: e.clientX, y: e.clientY, ox: o.ox, oy: o.oy, ruch: false }; });
+    c.addEventListener('contextmenu', e => klik(k, e, true));
+    c.addEventListener('wheel', e => kolko(k, e), { passive:false });
+    zoom.onclick = () => { o.z = 1; o.ox = 0; o.oy = 0; rysuj(k); };
+    pow.onclick = () => pokazDuzy(k);
+  });
+  odswiez();
+}
+
+async function zapisz() {
+  stan.kategoria = el('kategoria').value.trim(); stan.opis_obiektu = el('opis_obiektu').value.trim();
+  const body = { klucz: meta.klucz, zbior: meta.zbior, log: meta.log, track: meta.track, kategoria: stan.kategoria,
+                 opis_obiektu: stan.opis_obiektu, okno_ns: meta.okno_ns,
+                 punkty: stan.punkty.filter(p => p.klikniecia.length).map(p => ({ nazwa: p.nazwa, opis: p.opis, xyz_m: p.xyz_m, klikniecia: p.klikniecia,
+                                                 residua_px: p.residua_px, kat_st: p.kat_st, lidar_cm: p.lidar_cm, wlasny: p.wlasny })),
+                 uklad: 'ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m', czas: new Date().toISOString() };
+  const r = await fetch('/zapisz_ctx/' + meta.klucz, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) { alert('Nie udało się zapisać: ' + r.status); return; }
+  zmiany = false; await policzZrobione(); opcje(); odswiez();
+}
+
+el('dodaj').onclick = () => {
+  const opis = el('opis').value.trim(); if (!opis) { alert('Wpisz opis punktu.'); return; }
+  stan.punkty.push({ nazwa: slug(opis), opis, klikniecia: [], xyz_m: null, residua_px: {}, kat_st: 0, lidar_cm: null, wlasny: true });
+  aktywny = stan.punkty.length - 1; el('opis').value = ''; zmiany = true; odswiez();
+};
+el('kategoria').addEventListener('input', () => { zmiany = true; zbudujPunkty(); odswiez(); });
+el('opis_obiektu').addEventListener('input', () => { zmiany = true; odswiez(); });
+el('ramka').onchange = () => kadry.forEach((_, k) => rysuj(k));
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && duzy >= 0) pokazDuzy(duzy);
+  if (e.key === 's' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); zapisz(); }
+  if (e.key === 'Enter' && !/INPUT|TEXTAREA|BUTTON/.test(e.target.tagName)) { e.preventDefault(); nastepnyPunkt(); }
+});
+window.addEventListener('beforeunload', e => { if (zmiany) { e.preventDefault(); e.returnValue = ''; } });
+window.addEventListener('resize', () => kadry.forEach((_, k) => rysuj(k)));
+el('zapisz').onclick = zapisz;
+el('poprzedni').onclick = () => { const s = el('obiekty'); if (s.selectedIndex > 0) { s.selectedIndex--; wczytaj(s.value); } };
+el('nastepny').onclick = () => { const s = el('obiekty'); if (s.selectedIndex < s.options.length - 1) { s.selectedIndex++; wczytaj(s.value); } };
+
+(async () => {
+  slownik = await json('slownik_ctx.json');
+  el('kategorie').innerHTML = Object.keys(slownik).map(k => '<option value="' + k + '">').join('');
+  obiekty = await json('kontekst.json');
+  obiekty.sort((a, b) => a.kategoria.localeCompare(b.kategoria) || a.klucz.localeCompare(b.klucz));
+  const kat = [...new Set(obiekty.map(o => o.kategoria))];
+  el('filtr').innerHTML = '<option value="">wszystkie (' + obiekty.length + ')</option>' +
+    kat.map(k => '<option value="' + k + '">' + k + ' (' + obiekty.filter(o => o.kategoria === k).length + ')</option>').join('');
+  await policzZrobione(); opcje();
+  el('filtr').onchange = () => { opcje(); if (el('obiekty').value) wczytaj(el('obiekty').value); };
+  el('obiekty').onchange = () => wczytaj(el('obiekty').value);
+  if (el('obiekty').value) wczytaj(el('obiekty').value);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Anotacja punktów – ARKitScenes</title>
+<style>
+  :root { --tlo:#f4f4f2; --panel:#ffffff; --tekst:#1d1d1b; --szary:#6b6b66; --akcent:#c2410c; --ok:#15803d; --brak:#7c3aed; --linia:#d8d8d2; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:14px/1.4 system-ui, sans-serif; background:var(--tlo); color:var(--tekst); display:grid;
+         grid-template-columns: 1fr 340px; grid-template-rows: auto 1fr 280px; height:100vh; }
+  header { grid-column:1/3; display:flex; gap:12px; align-items:center; padding:8px 12px; background:var(--panel); border-bottom:1px solid var(--linia); flex-wrap:wrap; }
+  header select, header button { font:inherit; padding:4px 8px; }
+  #info { color:var(--szary); }
+  #widok { position:relative; min-height:0; }
+  #widok canvas { display:block; }
+  #panel { grid-row:2/4; grid-column:2; background:var(--panel); border-left:1px solid var(--linia); overflow:auto; padding:8px; }
+  #podglady { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap:4px; padding:4px; background:#222; min-height:0; overflow:hidden; }
+  #podglady canvas { width:100%; height:100%; min-width:0; min-height:0; object-fit:contain; background:#000; display:block; }
+  .pkt { padding:6px 8px; border:1px solid var(--linia); border-radius:6px; margin-bottom:4px; cursor:pointer; }
+  .pkt.aktywny { border-color:var(--akcent); box-shadow:0 0 0 2px #fed7aa; }
+  .pkt .n { font-weight:600; }
+  .pkt .p { color:var(--szary); font-size:12px; }
+  .pkt .s { float:right; font-size:12px; }
+  .ok { color:var(--ok); } .brak { color:var(--brak); } .todo { color:var(--szary); }
+  .zasada { background:#fff7ed; border:1px solid #fed7aa; border-radius:6px; padding:6px 8px; margin-bottom:8px; font-size:12px; }
+  #stan { font-weight:600; }
+  kbd { border:1px solid var(--linia); border-radius:3px; padding:0 4px; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <label>Scena <select id="sceny"></select></label>
+  <button id="zapisz">Zapisz</button>
+  <span id="stan"></span>
+  <span id="info"></span>
+</header>
+<div id="widok"></div>
+<div id="panel">
+  <div class="zasada">Lewo/prawo i przód/tył zawsze z punktu widzenia osoby siedzącej na krześle przy biurku, twarzą do monitora.
+    Wybierz punkt z listy i kliknij siatkę (przeciąganie obraca widok). <kbd>B</kbd> = punktu nie ma albo nie da się go wskazać,
+    <kbd>Del</kbd> = usuń punkt, <kbd>Z</kbd> = pokaż/ukryj pudełka. Sprawdź rzuty na zdjęciach poniżej.</div>
+  <div id="lista"></div>
+</div>
+<div id="podglady"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/PLYLoader.js"></script>
+<script>
+const KOLOR = { table:0xea580c, tv_monitor:0x2563eb, chair:0x16a34a, stool:0x16a34a };
+let slownik, sceny, meta, punkty = {}, aktywny = 0, zmiany = false;
+let scene, camera, renderer, controls, siatka, grupaPudelek, grupaPunktow, obrazy = [];
+
+const el = id => document.getElementById(id);
+async function json(url) { const r = await fetch(url); if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); }
+
+function init3d() {
+  const w = el('widok');
+  renderer = new THREE.WebGLRenderer({ antialias:true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  w.appendChild(renderer.domElement);
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xe7e5e4);
+  camera = new THREE.PerspectiveCamera(55, 1, 0.02, 100);
+  camera.up.set(0, 0, 1);
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  scene.add(new THREE.AmbientLight(0xffffff, 1.0));
+  grupaPudelek = new THREE.Group(); scene.add(grupaPudelek);
+  grupaPunktow = new THREE.Group(); scene.add(grupaPunktow);
+  window.addEventListener('resize', rozmiar); rozmiar();
+  let dol = null;
+  renderer.domElement.addEventListener('pointerdown', e => { dol = [e.clientX, e.clientY]; });
+  renderer.domElement.addEventListener('pointerup', e => {
+    if (!dol || Math.hypot(e.clientX - dol[0], e.clientY - dol[1]) > 4) return;
+    klik(e);
+  });
+  (function petla() { requestAnimationFrame(petla); controls.update(); renderer.render(scene, camera); })();
+}
+
+function rozmiar() {
+  const w = el('widok');
+  renderer.setSize(w.clientWidth, w.clientHeight);
+  camera.aspect = w.clientWidth / Math.max(1, w.clientHeight);
+  camera.updateProjectionMatrix();
+}
+
+function klik(e) {
+  if (!siatka) return;
+  const r = renderer.domElement.getBoundingClientRect();
+  const m = new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+  const rc = new THREE.Raycaster(); rc.setFromCamera(m, camera);
+  const hit = rc.intersectObject(siatka)[0];
+  if (!hit) return;
+  const nazwa = slownik.punkty[aktywny].nazwa;
+  punkty[nazwa] = [hit.point.x, hit.point.y, hit.point.z];
+  zmiany = true; nastepny(); odswiez();
+}
+
+function nastepny() {
+  const n = slownik.punkty.length;
+  for (let k = 1; k <= n; k++) {
+    const i = (aktywny + k) % n;
+    if (!(slownik.punkty[i].nazwa in punkty)) { aktywny = i; return; }
+  }
+}
+
+function pudelka() {
+  grupaPudelek.clear();
+  for (const b of meta.pudelka) {
+    const g = new THREE.BoxGeometry(b.L[0], b.L[1], b.L[2]);
+    const lin = new THREE.LineSegments(new THREE.EdgesGeometry(g), new THREE.LineBasicMaterial({ color: KOLOR[b.label] || 0x444444 }));
+    const R = b.R, M = new THREE.Matrix4();
+    M.set(R[0][0], R[0][1], R[0][2], b.c[0], R[1][0], R[1][1], R[1][2], b.c[1], R[2][0], R[2][1], R[2][2], b.c[2], 0, 0, 0, 1);
+    lin.applyMatrix4(M);
+    grupaPudelek.add(lin);
+  }
+}
+
+function odswiez() {
+  // lista
+  const lista = el('lista'); lista.innerHTML = '';
+  slownik.punkty.forEach((p, i) => {
+    const d = document.createElement('div');
+    const v = punkty[p.nazwa];
+    const st = v === undefined ? '<span class="s todo">do zrobienia</span>' : v === 'brak' ? '<span class="s brak">brak</span>' : '<span class="s ok">✓</span>';
+    d.className = 'pkt' + (i === aktywny ? ' aktywny' : '');
+    d.innerHTML = st + '<div class="n">' + (i + 1) + '. ' + p.nazwa + '</div><div class="p">' + p.podpowiedz + '</div>';
+    d.onclick = () => { aktywny = i; odswiez(); };
+    lista.appendChild(d);
+  });
+  // kulki
+  grupaPunktow.clear();
+  slownik.punkty.forEach((p, i) => {
+    const v = punkty[p.nazwa];
+    if (!Array.isArray(v)) return;
+    const s = new THREE.Mesh(new THREE.SphereGeometry(i === aktywny ? 0.022 : 0.015, 12, 8),
+                             new THREE.MeshBasicMaterial({ color: i === aktywny ? 0xdc2626 : 0xfacc15 }));
+    s.position.set(v[0], v[1], v[2]); grupaPunktow.add(s);
+  });
+  // rzuty na zdjęcia
+  obrazy.forEach(rysujPodglad);
+  const zrobione = slownik.punkty.filter(p => p.nazwa in punkty).length;
+  el('stan').textContent = (zmiany ? 'niezapisane · ' : '') + zrobione + '/' + slownik.punkty.length;
+}
+
+function rysujPodglad(o) {
+  const c = o.canvas, ctx = c.getContext('2d');
+  ctx.drawImage(o.img, 0, 0, c.width, c.height);
+  const K = o.k.K, T = o.k.T_cw;
+  slownik.punkty.forEach((p, i) => {
+    const v = punkty[p.nazwa];
+    if (!Array.isArray(v)) return;
+    const x = T[0][0]*v[0] + T[0][1]*v[1] + T[0][2]*v[2] + T[0][3];
+    const y = T[1][0]*v[0] + T[1][1]*v[1] + T[1][2]*v[2] + T[1][3];
+    const z = T[2][0]*v[0] + T[2][1]*v[1] + T[2][2]*v[2] + T[2][3];
+    if (z <= 0.05) return;
+    const u = K[0][0] * x / z + K[0][2], w = K[1][1] * y / z + K[1][2];
+    if (u < 0 || w < 0 || u > c.width || w > c.height) return;
+    const r = c.width / 45;
+    ctx.beginPath(); ctx.arc(u, w, i === aktywny ? 1.5 * r : r, 0, 2 * Math.PI);
+    ctx.fillStyle = i === aktywny ? '#dc2626' : '#facc15'; ctx.fill();
+    ctx.lineWidth = r / 3; ctx.strokeStyle = '#000'; ctx.stroke();
+    ctx.fillStyle = '#fff'; ctx.font = 'bold ' + Math.round(2.2 * r) + 'px system-ui'; ctx.lineWidth = r / 2.5;
+    ctx.strokeText(String(i + 1), u + 1.4 * r, w - 1.2 * r); ctx.fillText(String(i + 1), u + 1.4 * r, w - 1.2 * r);
+  });
+}
+
+async function wczytajScene(id) {
+  if (zmiany && !confirm('Są niezapisane zmiany. Przejść mimo to?')) { el('sceny').value = meta.video_id; return; }
+  meta = await json('sceny/' + id + '/meta.json');
+  try { punkty = (await json('punkty/' + id + '.json')).punkty || {}; } catch (e) { punkty = {}; }
+  zmiany = false; aktywny = 0; nastepny(); if (!(slownik.punkty[0].nazwa in punkty)) aktywny = 0;
+  el('info').textContent = 'wczytuję siatkę…';
+  if (siatka) { scene.remove(siatka); siatka.geometry.dispose(); siatka = null; }
+  new THREE.PLYLoader().load(meta.siatka, g => {
+    g.computeVertexNormals();
+    const mat = g.getAttribute('color') ? new THREE.MeshBasicMaterial({ vertexColors:true, side:THREE.DoubleSide })
+                                        : new THREE.MeshNormalMaterial({ side:THREE.DoubleSide });
+    siatka = new THREE.Mesh(g, mat); scene.add(siatka);
+    const b = meta.pudelka[0];
+    controls.target.set(b.c[0], b.c[1], b.c[2] + b.L[2] / 2);
+    camera.position.set(b.c[0] + 1.6, b.c[1] - 1.6, b.c[2] + 1.4);
+    el('info').textContent = 'scena ' + id + ' · biurko widać na ' + meta.widoczne_na + ' z ' + meta.wszystkich_klatek + ' klatek';
+  });
+  pudelka();
+  const pg = el('podglady'); pg.innerHTML = ''; obrazy = [];
+  for (const k of meta.klatki) {
+    const c = document.createElement('canvas'); c.width = k.szer || 960; c.height = k.wys || 720; pg.appendChild(c);
+    const img = new Image(); const o = { canvas:c, img, k }; obrazy.push(o);
+    img.onload = () => rysujPodglad(o); img.src = 'sceny/' + id + '/' + k.plik;
+  }
+  odswiez();
+}
+
+async function zapisz() {
+  const r = await fetch('/zapisz/' + meta.video_id, { method:'POST', headers:{ 'Content-Type':'application/json' },
+    body: JSON.stringify({ video_id: meta.video_id, punkty, czas: new Date().toISOString(), uklad: 'świat ARKitScenes (siatka), m, oś z w górę' }) });
+  if (r.ok) { zmiany = false; odswiez(); }
+  else alert('Nie udało się zapisać: ' + r.status);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'SELECT') return;
+  const nazwa = slownik.punkty[aktywny].nazwa;
+  if (e.key === 'b' || e.key === 'B') { punkty[nazwa] = 'brak'; zmiany = true; nastepny(); odswiez(); }
+  if (e.key === 'Delete' || e.key === 'Backspace') { delete punkty[nazwa]; zmiany = true; odswiez(); }
+  if (e.key === 'z' || e.key === 'Z') grupaPudelek.visible = !grupaPudelek.visible;
+  if (e.key === 's' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); zapisz(); }
+});
+window.addEventListener('beforeunload', e => { if (zmiany) { e.preventDefault(); e.returnValue = ''; } });
+
+(async () => {
+  init3d();
+  slownik = await json('slownik.json');
+  sceny = await json('sceny.json');
+  const sel = el('sceny');
+  sceny.forEach(s => { const o = document.createElement('option'); o.value = s.video_id;
+    o.textContent = s.video_id + ' (monitory ' + s.monitorow + ', krzesła ' + s.krzesel + ')'; sel.appendChild(o); });
+  sel.onchange = () => wczytajScene(sel.value);
+  el('zapisz').onclick = zapisz;
+  if (sceny.length) wczytajScene(sceny[0].video_id);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+ "klucz": "handal_000031",
+ "zbior": "handal",
+ "obj_id": 31,
+ "nazwa": "spider strainer, wire, black handle",
+ "kategoria": "strainer",
+ "opis_obiektu": "",
+ "punkty": [
+  {
+   "nazwa": "end of a handle of a strainer",
+   "opis": "end of a handle of a metal strainer",
+   "xyz_mm": [
+    -30.814700801393105,
+    2.213967302445302,
+    -180.86650807832137
+   ]
+  }
+ ],
+ "uklad": "model BOP, mm",
+ "czas": "2026-10-29T19:00:19.044Z"
+}

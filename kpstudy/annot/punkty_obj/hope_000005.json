@@ -1,0 +1,30 @@
+{
+ "klucz": "hope_000005",
+ "zbior": "hope",
+ "obj_id": 5,
+ "nazwa": "ChocolatePudding",
+ "kategoria": "box",
+ "opis_obiektu": "",
+ "punkty": [
+  {
+   "nazwa": "top left",
+   "opis": "top left corner of a chocolate pudding",
+   "xyz_mm": [
+    13.560144741073712,
+    -40.879379180490155,
+    22.203891824402923
+   ]
+  },
+  {
+   "nazwa": "top right front corner",
+   "opis": "top right front corner of a chocolate pudding",
+   "xyz_mm": [
+    14.224174831279162,
+    39.0380532080026,
+    23.188341550163347
+   ]
+  }
+ ],
+ "uklad": "model BOP, mm",
+ "czas": "2026-10-29T18:53:12.420Z"
+}

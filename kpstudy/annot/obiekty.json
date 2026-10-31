@@ -1,0 +1,386 @@
+[
+ {
+  "klucz": "hope_000001",
+  "zbior": "hope",
+  "obj_id": 1,
+  "nazwa": "AlphabetSoup",
+  "wystapien": 45,
+  "dobrze_widocznych": 40
+ },
+ {
+  "klucz": "hope_000002",
+  "zbior": "hope",
+  "obj_id": 2,
+  "nazwa": "BBQSauce",
+  "wystapien": 45,
+  "dobrze_widocznych": 36
+ },
+ {
+  "klucz": "hope_000003",
+  "zbior": "hope",
+  "obj_id": 3,
+  "nazwa": "Butter",
+  "wystapien": 45,
+  "dobrze_widocznych": 40
+ },
+ {
+  "klucz": "hope_000004",
+  "zbior": "hope",
+  "obj_id": 4,
+  "nazwa": "Cherries",
+  "wystapien": 20,
+  "dobrze_widocznych": 20
+ },
+ {
+  "klucz": "hope_000005",
+  "zbior": "hope",
+  "obj_id": 5,
+  "nazwa": "ChocolatePudding",
+  "wystapien": 30,
+  "dobrze_widocznych": 30
+ },
+ {
+  "klucz": "hope_000006",
+  "zbior": "hope",
+  "obj_id": 6,
+  "nazwa": "Cookies",
+  "wystapien": 25,
+  "dobrze_widocznych": 25
+ },
+ {
+  "klucz": "hope_000007",
+  "zbior": "hope",
+  "obj_id": 7,
+  "nazwa": "Corn",
+  "wystapien": 40,
+  "dobrze_widocznych": 30
+ },
+ {
+  "klucz": "hope_000008",
+  "zbior": "hope",
+  "obj_id": 8,
+  "nazwa": "CreamCheese",
+  "wystapien": 25,
+  "dobrze_widocznych": 25
+ },
+ {
+  "klucz": "hope_000009",
+  "zbior": "hope",
+  "obj_id": 9,
+  "nazwa": "GranolaBars",
+  "wystapien": 25,
+  "dobrze_widocznych": 25
+ },
+ {
+  "klucz": "hope_000010",
+  "zbior": "hope",
+  "obj_id": 10,
+  "nazwa": "GreenBeans",
+  "wystapien": 35,
+  "dobrze_widocznych": 25
+ },
+ {
+  "klucz": "hope_000011",
+  "zbior": "hope",
+  "obj_id": 11,
+  "nazwa": "Ketchup",
+  "wystapien": 40,
+  "dobrze_widocznych": 35
+ },
+ {
+  "klucz": "hope_000012",
+  "zbior": "hope",
+  "obj_id": 12,
+  "nazwa": "Macaroni&Cheese",
+  "wystapien": 50,
+  "dobrze_widocznych": 50
+ },
+ {
+  "klucz": "hope_000013",
+  "zbior": "hope",
+  "obj_id": 13,
+  "nazwa": "Mayo",
+  "wystapien": 30,
+  "dobrze_widocznych": 30
+ },
+ {
+  "klucz": "hope_000014",
+  "zbior": "hope",
+  "obj_id": 14,
+  "nazwa": "Milk",
+  "wystapien": 25,
+  "dobrze_widocznych": 25
+ },
+ {
+  "klucz": "hope_000015",
+  "zbior": "hope",
+  "obj_id": 15,
+  "nazwa": "Mushrooms",
+  "wystapien": 35,
+  "dobrze_widocznych": 35
+ },
+ {
+  "klucz": "hope_000016",
+  "zbior": "hope",
+  "obj_id": 16,
+  "nazwa": "Mustard",
+  "wystapien": 50,
+  "dobrze_widocznych": 45
+ },
+ {
+  "klucz": "hope_000017",
+  "zbior": "hope",
+  "obj_id": 17,
+  "nazwa": "OrangeJuice",
+  "wystapien": 25,
+  "dobrze_widocznych": 15
+ },
+ {
+  "klucz": "hope_000018",
+  "zbior": "hope",
+  "obj_id": 18,
+  "nazwa": "Parmesan",
+  "wystapien": 30,
+  "dobrze_widocznych": 30
+ },
+ {
+  "klucz": "hope_000019",
+  "zbior": "hope",
+  "obj_id": 19,
+  "nazwa": "Peaches",
+  "wystapien": 20,
+  "dobrze_widocznych": 20
+ },
+ {
+  "klucz": "hope_000020",
+  "zbior": "hope",
+  "obj_id": 20,
+  "nazwa": "Peas&Carrots",
+  "wystapien": 30,
+  "dobrze_widocznych": 25
+ },
+ {
+  "klucz": "hope_000021",
+  "zbior": "hope",
+  "obj_id": 21,
+  "nazwa": "Pineapple",
+  "wystapien": 55,
+  "dobrze_widocznych": 48
+ },
+ {
+  "klucz": "hope_000022",
+  "zbior": "hope",
+  "obj_id": 22,
+  "nazwa": "Popcorn",
+  "wystapien": 20,
+  "dobrze_widocznych": 20
+ },
+ {
+  "klucz": "hope_000023",
+  "zbior": "hope",
+  "obj_id": 23,
+  "nazwa": "Raisins",
+  "wystapien": 40,
+  "dobrze_widocznych": 30
+ },
+ {
+  "klucz": "hope_000024",
+  "zbior": "hope",
+  "obj_id": 24,
+  "nazwa": "SaladDressing",
+  "wystapien": 10,
+  "dobrze_widocznych": 10
+ },
+ {
+  "klucz": "hope_000025",
+  "zbior": "hope",
+  "obj_id": 25,
+  "nazwa": "Spaghetti",
+  "wystapien": 35,
+  "dobrze_widocznych": 25
+ },
+ {
+  "klucz": "hope_000026",
+  "zbior": "hope",
+  "obj_id": 26,
+  "nazwa": "TomatoSauce",
+  "wystapien": 35,
+  "dobrze_widocznych": 35
+ },
+ {
+  "klucz": "hope_000027",
+  "zbior": "hope",
+  "obj_id": 27,
+  "nazwa": "Tuna",
+  "wystapien": 35,
+  "dobrze_widocznych": 35
+ },
+ {
+  "klucz": "hope_000028",
+  "zbior": "hope",
+  "obj_id": 28,
+  "nazwa": "Yogurt",
+  "wystapien": 20,
+  "dobrze_widocznych": 20
+ },
+ {
+  "klucz": "handal_000002",
+  "zbior": "handal",
+  "obj_id": 2,
+  "nazwa": "hammer, black-teal grip",
+  "wystapien": 662,
+  "dobrze_widocznych": 623
+ },
+ {
+  "klucz": "handal_000006",
+  "zbior": "handal",
+  "obj_id": 6,
+  "nazwa": "hammer, red-black grip",
+  "wystapien": 666,
+  "dobrze_widocznych": 660
+ },
+ {
+  "klucz": "handal_000008",
+  "zbior": "handal",
+  "obj_id": 8,
+  "nazwa": "hammer, wooden handle",
+  "wystapien": 233,
+  "dobrze_widocznych": 218
+ },
+ {
+  "klucz": "handal_000009",
+  "zbior": "handal",
+  "obj_id": 9,
+  "nazwa": "hammer, all black",
+  "wystapien": 225,
+  "dobrze_widocznych": 215
+ },
+ {
+  "klucz": "handal_000010",
+  "zbior": "handal",
+  "obj_id": 10,
+  "nazwa": "slotted spoon, green, wooden handle",
+  "wystapien": 1102,
+  "dobrze_widocznych": 1019
+ },
+ {
+  "klucz": "handal_000011",
+  "zbior": "handal",
+  "obj_id": 11,
+  "nazwa": "spoon, red, wooden handle",
+  "wystapien": 879,
+  "dobrze_widocznych": 671
+ },
+ {
+  "klucz": "handal_000012",
+  "zbior": "handal",
+  "obj_id": 12,
+  "nazwa": "spoon, green, wooden handle",
+  "wystapien": 442,
+  "dobrze_widocznych": 375
+ },
+ {
+  "klucz": "handal_000016",
+  "zbior": "handal",
+  "obj_id": 16,
+  "nazwa": "measuring cup, blue",
+  "wystapien": 662,
+  "dobrze_widocznych": 578
+ },
+ {
+  "klucz": "handal_000017",
+  "zbior": "handal",
+  "obj_id": 17,
+  "nazwa": "measuring cup, yellow",
+  "wystapien": 441,
+  "dobrze_widocznych": 355
+ },
+ {
+  "klucz": "handal_000020",
+  "zbior": "handal",
+  "obj_id": 20,
+  "nazwa": "power drill, green-black",
+  "wystapien": 448,
+  "dobrze_widocznych": 414
+ },
+ {
+  "klucz": "handal_000027",
+  "zbior": "handal",
+  "obj_id": 27,
+  "nazwa": "spatula, pink, wooden handle",
+  "wystapien": 423,
+  "dobrze_widocznych": 348
+ },
+ {
+  "klucz": "handal_000028",
+  "zbior": "handal",
+  "obj_id": 28,
+  "nazwa": "slotted turner, orange, wooden handle",
+  "wystapien": 450,
+  "dobrze_widocznych": 413
+ },
+ {
+  "klucz": "handal_000029",
+  "zbior": "handal",
+  "obj_id": 29,
+  "nazwa": "turner, blue, wooden handle",
+  "wystapien": 663,
+  "dobrze_widocznych": 532
+ },
+ {
+  "klucz": "handal_000031",
+  "zbior": "handal",
+  "obj_id": 31,
+  "nazwa": "spider strainer, wire, black handle",
+  "wystapien": 666,
+  "dobrze_widocznych": 573
+ },
+ {
+  "klucz": "handal_000033",
+  "zbior": "handal",
+  "obj_id": 33,
+  "nazwa": "strainer, teal rim",
+  "wystapien": 891,
+  "dobrze_widocznych": 823
+ },
+ {
+  "klucz": "handal_000034",
+  "zbior": "handal",
+  "obj_id": 34,
+  "nazwa": "colander, green, collapsible",
+  "wystapien": 441,
+  "dobrze_widocznych": 393
+ },
+ {
+  "klucz": "handal_000036",
+  "zbior": "handal",
+  "obj_id": 36,
+  "nazwa": "whisk, black handle",
+  "wystapien": 662,
+  "dobrze_widocznych": 565
+ },
+ {
+  "klucz": "handal_000037",
+  "zbior": "handal",
+  "obj_id": 37,
+  "nazwa": "whisk, mint handle",
+  "wystapien": 1099,
+  "dobrze_widocznych": 892
+ },
+ {
+  "klucz": "handal_000039",
+  "zbior": "handal",
+  "obj_id": 39,
+  "nazwa": "whisk, red wire, black handle",
+  "wystapien": 652,
+  "dobrze_widocznych": 567
+ },
+ {
+  "klucz": "handal_000040",
+  "zbior": "handal",
+  "obj_id": 40,
+  "nazwa": "whisk, yellow wire, black handle",
+  "wystapien": 447,
+  "dobrze_widocznych": 427
+ }
+]

@@ -1,0 +1,112 @@
+{
+ "klucz": "av2_b213af37_02a83709",
+ "zbior": "av2",
+ "log": "b213af37-7d89-342d-ae39-8a3c72159a01",
+ "track": "02a83709-2ae8-4fb1-a1e0-4f41e5a69ff3",
+ "kategoria": "large vehicle",
+ "opis_obiektu": "",
+ "okno_ns": null,
+ "punkty": [
+  {
+   "nazwa": "center_of_the_left_headlight_of_a_large_vehicle",
+   "opis": "center of the left headlight of a large vehicle",
+   "xyz_m": [
+    3.6276183480305932,
+    0.9613242397716648,
+    -0.46154147595354295
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 492.71,
+     "v": 386.95
+    },
+    {
+     "podglad": 1,
+     "u": 395.68,
+     "v": 379.19
+    },
+    {
+     "podglad": 3,
+     "u": 498.53,
+     "v": 371.81
+    }
+   ],
+   "residua_px": {
+    "1": 3.9761275685732644,
+    "2": 3.4883726607278973,
+    "3": 0.7455550002666643
+   },
+   "kat_st": 28.912702046605634,
+   "lidar_cm": 3.6488870332383914
+  },
+  {
+   "nazwa": "center_of_the_right_headlight_of_a_large_vehicle",
+   "opis": "center of the right headlight of a large vehicle",
+   "xyz_m": [
+    3.7026988219599017,
+    -0.7141776119987734,
+    -0.5346595622212228
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 246.26,
+     "v": 390.83
+    },
+    {
+     "podglad": 1,
+     "u": 170.58,
+     "v": 396.65
+    },
+    {
+     "podglad": 0,
+     "u": 389.86,
+     "v": 367.54
+    }
+   ],
+   "residua_px": {
+    "0": 1.850518339302152,
+    "1": 10.443943313680666,
+    "2": 9.70990906982974
+   },
+   "kat_st": 38.193772451564406,
+   "lidar_cm": 5.79542037757825
+  },
+  {
+   "nazwa": "center_of_the_top_edge_of_the_windshield_of_a_large_vehicle",
+   "opis": "center of the top edge of the windshield of a large vehicle",
+   "xyz_m": [
+    2.0094790669840545,
+    0.04981335727245749,
+    0.34196032626575734
+   ],
+   "klikniecia": [
+    {
+     "podglad": 5,
+     "u": 331.64,
+     "v": 274.78
+    },
+    {
+     "podglad": 4,
+     "u": 331.64,
+     "v": 263.14
+    },
+    {
+     "podglad": 3,
+     "u": 339.41,
+     "v": 278.67
+    }
+   ],
+   "residua_px": {
+    "3": 4.658627846655966,
+    "4": 3.231459723928321,
+    "5": 3.3825175572296122
+   },
+   "kat_st": 22.038890497118956,
+   "lidar_cm": 3.357084395594992
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T11:11:39.395Z"
+}

@@ -1,0 +1,23 @@
+{
+ "_doc": "Nazwane punkty do anotacji scen ARKitScenes (bez ludzi). Lewo/prawo i przód/tył zawsze z punktu widzenia osoby siedzącej na krześle przy biurku, twarzą do monitora. 'phrase' idzie do modeli tekst->punkt (szablon jak w prompts.json); 'podpowiedz' jest dla osoby klikającej. 'obiekt' to klasa pudełka ARKitScenes, przy którym punkt leży (keyboard i mouse nie mają pudełek).",
+ "template": "Point to the {phrase} in this image.",
+ "punkty": [
+  {"nazwa": "desk_top_front_left", "obiekt": "table", "phrase": "front left corner of the desk top (the corner on the chair side, on the left of a person sitting at the desk)", "podpowiedz": "róg blatu od strony krzesła, po lewej siedzącego"},
+  {"nazwa": "desk_top_front_right", "obiekt": "table", "phrase": "front right corner of the desk top (the corner on the chair side, on the right of a person sitting at the desk)", "podpowiedz": "róg blatu od strony krzesła, po prawej siedzącego"},
+  {"nazwa": "desk_top_back_left", "obiekt": "table", "phrase": "back left corner of the desk top (far from the chair, on the left of a person sitting at the desk)", "podpowiedz": "róg blatu od strony ściany/monitora, po lewej"},
+  {"nazwa": "desk_top_back_right", "obiekt": "table", "phrase": "back right corner of the desk top (far from the chair, on the right of a person sitting at the desk)", "podpowiedz": "róg blatu od strony ściany/monitora, po prawej"},
+  {"nazwa": "desk_front_edge_center", "obiekt": "table", "phrase": "middle of the front edge of the desk top (the edge facing the chair)", "podpowiedz": "środek krawędzi blatu od strony krzesła"},
+  {"nazwa": "monitor_screen_center", "obiekt": "tv_monitor", "phrase": "centre of the monitor screen", "podpowiedz": "środek ekranu"},
+  {"nazwa": "monitor_top_edge_center", "obiekt": "tv_monitor", "phrase": "middle of the top edge of the monitor", "podpowiedz": "środek górnej krawędzi monitora (obudowy)"},
+  {"nazwa": "monitor_top_left", "obiekt": "tv_monitor", "phrase": "top left corner of the monitor", "podpowiedz": "lewy górny róg monitora, patrząc na ekran"},
+  {"nazwa": "monitor_top_right", "obiekt": "tv_monitor", "phrase": "top right corner of the monitor", "podpowiedz": "prawy górny róg monitora, patrząc na ekran"},
+  {"nazwa": "monitor_bottom_left", "obiekt": "tv_monitor", "phrase": "bottom left corner of the monitor", "podpowiedz": "lewy dolny róg monitora, patrząc na ekran"},
+  {"nazwa": "monitor_bottom_right", "obiekt": "tv_monitor", "phrase": "bottom right corner of the monitor", "podpowiedz": "prawy dolny róg monitora, patrząc na ekran"},
+  {"nazwa": "keyboard_center", "obiekt": "keyboard", "phrase": "centre of the keyboard", "podpowiedz": "środek klawiatury (jeśli jest)"},
+  {"nazwa": "mouse_center", "obiekt": "mouse", "phrase": "computer mouse", "podpowiedz": "środek myszy (jeśli jest)"},
+  {"nazwa": "seat_top_center", "obiekt": "chair", "phrase": "centre of the chair seat", "podpowiedz": "środek siedziska krzesła przy biurku"},
+  {"nazwa": "chair_back_top_center", "obiekt": "chair", "phrase": "middle of the top edge of the chair backrest", "podpowiedz": "środek górnej krawędzi oparcia"},
+  {"nazwa": "armrest_top_left", "obiekt": "chair", "phrase": "top of the chair's left armrest", "podpowiedz": "wierzch lewego podłokietnika (jeśli jest)"},
+  {"nazwa": "armrest_top_right", "obiekt": "chair", "phrase": "top of the chair's right armrest", "podpowiedz": "wierzch prawego podłokietnika (jeśli jest)"}
+ ]
+}

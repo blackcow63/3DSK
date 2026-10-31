@@ -1,0 +1,104 @@
+{
+ "proxy_host": "odkurzacz",
+ "calibration_factor_phone_over_proxy": 1.4352410952881396,
+ "vlm_run": "qwen3vl2b_q4_640_t4",
+ "vlm_image_ms": 11133.443599916063,
+ "vlm_question_ms": 1985.6004500179552,
+ "n_furniture_questions": 14,
+ "components_proxy_ms_mb": {
+  "person detector (BlazePose)": [
+   7.430250057950616,
+   2.8
+  ],
+  "MediaPipe Pose heavy": [
+   114.81420008931309,
+   28.8
+  ],
+  "NLF-S": [
+   103.42585004400462,
+   108.21385599999999
+  ],
+  "NLF-L": [
+   337.1408000239171,
+   496.440992
+  ],
+  "MoGe-2-S": [
+   3358.6735000135377,
+   134.32698345184326
+  ],
+  "MoGe-2-B": [
+   5151.038549956866,
+   399.98230934143066
+  ],
+  "MoGe-2-L": [
+   10686.274799983948,
+   1262.917531967163
+  ]
+ },
+ "configurations": [
+  {
+   "configuration": "people only: NLF-S, 1 photo",
+   "photos": 1,
+   "proxy_s": 0.1,
+   "phone_s": 0.1,
+   "models_mb": 108,
+   "feasible": true
+  },
+  {
+   "configuration": "people only: NLF-S 2D + triangulation, 5 photos",
+   "photos": 5,
+   "proxy_s": 0.5,
+   "phone_s": 0.7,
+   "models_mb": 108,
+   "feasible": true
+  },
+  {
+   "configuration": "people only: NLF-L, 1 photo",
+   "photos": 1,
+   "proxy_s": 0.3,
+   "phone_s": 0.5,
+   "models_mb": 496,
+   "feasible": true
+  },
+  {
+   "configuration": "people only: MediaPipe heavy 2D + triangulation, 5 photos",
+   "photos": 5,
+   "proxy_s": 0.6,
+   "phone_s": 0.8,
+   "models_mb": 29,
+   "feasible": true
+  },
+  {
+   "configuration": "full: NLF-S + Qwen3-VL-2B@640 + MoGe-2-S depth, 1 photo",
+   "photos": 1,
+   "proxy_s": 42.4,
+   "phone_s": 60.8,
+   "models_mb": 1723,
+   "feasible": false
+  },
+  {
+   "configuration": "full: NLF-S + Qwen3-VL-2B@640 + MoGe-2-L depth, 1 photo",
+   "photos": 1,
+   "proxy_s": 49.7,
+   "phone_s": 71.4,
+   "models_mb": 2852,
+   "feasible": false
+  },
+  {
+   "configuration": "full: NLF-S + Qwen3-VL-2B@640 + triangulation, 2 photos",
+   "photos": 2,
+   "proxy_s": 78.1,
+   "phone_s": 112.1,
+   "models_mb": 1589,
+   "feasible": false
+  },
+  {
+   "configuration": "full: NLF-S + Qwen3-VL-2B@640 + triangulation, 5 photos",
+   "photos": 5,
+   "proxy_s": 195.2,
+   "phone_s": 280.1,
+   "models_mb": 1589,
+   "feasible": false
+  }
+ ]
+}

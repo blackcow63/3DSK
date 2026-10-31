@@ -1,0 +1,30 @@
+{
+ "klucz": "handal_000002",
+ "zbior": "handal",
+ "obj_id": 2,
+ "nazwa": "hammer, black-teal grip",
+ "kategoria": "hammer",
+ "opis_obiektu": "",
+ "punkty": [
+  {
+   "nazwa": "center of a handle grip",
+   "opis": "center of a handle grip of a hammer",
+   "xyz_mm": [
+    8.551574066183454,
+    1.005102576884298,
+    14.788154438625634
+   ]
+  },
+  {
+   "nazwa": "bottom of a handle grip",
+   "opis": "bottom of a handle grip of a hammer",
+   "xyz_mm": [
+    0.8292751096883183,
+    0.06173519355034962,
+    -162.12474747391315
+   ]
+  }
+ ],
+ "uklad": "model BOP, mm",
+ "czas": "2026-10-29T18:54:39.854Z"
+}

@@ -1,0 +1,76 @@
+{
+ "klucz": "av2_b213af37_74c4a4f3",
+ "zbior": "av2",
+ "log": "b213af37-7d89-342d-ae39-8a3c72159a01",
+ "track": "74c4a4f3-08a7-4058-9bdc-c5778cd138e3",
+ "kategoria": "person",
+ "opis_obiektu": "",
+ "okno_ns": [
+  315968648912451260,
+  315968650112451260
+ ],
+ "punkty": [
+  {
+   "nazwa": "left_knee_of_a_person",
+   "opis": "left knee of a person",
+   "xyz_m": [
+    -0.07456030678817721,
+    0.19367041549248756,
+    -0.40894727138765785
+   ],
+   "klikniecia": [
+    {
+     "podglad": 4,
+     "u": 337.47,
+     "v": 418.39
+    },
+    {
+     "podglad": 3,
+     "u": 310.3,
+     "v": 426.15
+    },
+    {
+     "podglad": 0,
+     "u": 333.58,
+     "v": 418
+    }
+   ],
+   "residua_px": {
+    "0": 3.340773617419538,
+    "3": 4.72229727185135,
+    "4": 3.2462586710010504
+   },
+   "kat_st": 27.55695129712876,
+   "lidar_cm": 4.930896343331007
+  },
+  {
+   "nazwa": "right_knee_of_a_person",
+   "opis": "right knee of a person",
+   "xyz_m": [
+    -0.10883242387982878,
+    -0.032854120907432074,
+    -0.43843757538516404
+   ],
+   "klikniecia": [
+    {
+     "podglad": 4,
+     "u": 292.83,
+     "v": 430.03
+    },
+    {
+     "podglad": 3,
+     "u": 288.95,
+     "v": 441.67
+    }
+   ],
+   "residua_px": {
+    "3": 5.510837165004255,
+    "4": 5.525145848019576
+   },
+   "kat_st": 19.29306879913946,
+   "lidar_cm": 5.2102025035194535
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T11:13:17.372Z"
+}

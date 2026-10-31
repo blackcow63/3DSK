@@ -1,0 +1,15 @@
+{
+ "model": "nlf_l_multi_0.3.2.torchscript",
+ "host": "odkurzacz",
+ "machine": "AMD64",
+ "crop_model_params_M": 123.410248,
+ "detector_params_M": 68.200608,
+ "crop_t1": {
+  "median_ms": 577.3261500289664,
+  "p90_ms": 586.1444000620395
+ },
+ "crop_t4": {
+  "median_ms": 329.7105499659665,
+  "p90_ms": 344.7702000848949
+ }
+}

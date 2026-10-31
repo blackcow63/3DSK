@@ -1,0 +1,269 @@
+{
+ "host": "odkurzacz",
+ "machine": "AMD64",
+ "cpu": "AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD",
+ "affinity": null,
+ "moge2_vits": {
+  "fp32_t1": {
+   "median_ms": 6372.932649974246,
+   "p90_ms": 6418.893499998376,
+   "n": 30,
+   "model_mb": 134.32698345184326
+  },
+  "fp32_t4": {
+   "median_ms": 3358.6735000135377,
+   "p90_ms": 3479.3754999991506,
+   "n": 30,
+   "model_mb": 134.32698345184326
+  },
+  "int8_t1": {
+   "median_ms": 6313.072900054976,
+   "p90_ms": 6395.172499935143,
+   "n": 30,
+   "model_mb": 72.95467472076416
+  },
+  "int8_t4": {
+   "median_ms": 3190.9460999886505,
+   "p90_ms": 3271.9332000706345,
+   "n": 30,
+   "model_mb": 72.95467472076416
+  }
+ },
+ "moge2_vitb": {
+  "fp32_t1": {
+   "median_ms": 10560.11885002954,
+   "p90_ms": 10672.932700021192,
+   "n": 30,
+   "model_mb": 399.98230934143066
+  },
+  "fp32_t4": {
+   "median_ms": 5151.038549956866,
+   "p90_ms": 5269.4767999928445,
+   "n": 30,
+   "model_mb": 399.98230934143066
+  },
+  "int8_t1": {
+   "median_ms": 9829.893850022927,
+   "p90_ms": 9884.48360003531,
+   "n": 30,
+   "model_mb": 153.82760906219482
+  },
+  "int8_t4": {
+   "median_ms": 4744.509100040887,
+   "p90_ms": 4805.512399994768,
+   "n": 30,
+   "model_mb": 153.82760906219482
+  }
+ },
+ "calibration": {
+  "lite": {
+   "median_ms": 17.07765000173822,
+   "p90_ms": 17.62790000066161,
+   "n": 100,
+   "pixel4_ms": 25.0,
+   "phone_over_grace": 1.4639016490825971
+  },
+  "full": {
+   "median_ms": 27.271950035355985,
+   "p90_ms": 28.248100075870752,
+   "n": 100,
+   "pixel4_ms": 40.0,
+   "phone_over_grace": 1.466708465956526
+  },
+  "heavy": {
+   "median_ms": 107.38395003136247,
+   "p90_ms": 111.9366999482736,
+   "n": 100,
+   "pixel4_ms": 147.0,
+   "phone_over_grace": 1.3689196565880404
+  },
+  "factor": 1.4639016490825971,
+  "person_detector_t1": {
+   "median_ms": 21.977549942675978,
+   "p90_ms": 22.663800045847893,
+   "n": 50
+  },
+  "person_detector_t4": {
+   "median_ms": 7.430250057950616,
+   "p90_ms": 7.951000006869435,
+   "n": 50
+  }
+ },
+ "moge2_vitl": {
+  "int8_error": "ImportError(\"cannot import name 'runtime_version' from 'google.protobuf' (C:\\\\Users\\\\zofsm\\\\3d\\\\ciop\\\\kpstudy\\\\.venv\\\\lib\\\\site-packages\\\\google\\\\protobuf\\\\__init__.py)\")",
+  "fp32_t1": {
+   "median_ms": 24159.016800054815,
+   "p90_ms": 24497.38509999588,
+   "n": 10,
+   "model_mb": 1262.917531967163
+  },
+  "fp32_t4": {
+   "median_ms": 10686.274799983948,
+   "p90_ms": 11112.571600009687,
+   "n": 10,
+   "model_mb": 1262.917531967163
+  }
+ },
+ "calibration_end": {
+  "lite": {
+   "median_ms": 17.7736000623554,
+   "p90_ms": 18.277299939654768,
+   "n": 100,
+   "pixel4_ms": 25.0,
+   "phone_over_grace": 1.406580541493682
+  },
+  "full": {
+   "median_ms": 28.047400061041117,
+   "p90_ms": 28.6498999921605,
+   "n": 100,
+   "pixel4_ms": 40.0,
+   "phone_over_grace": 1.4261571451523412
+  },
+  "heavy": {
+   "median_ms": 107.15709999203682,
+   "p90_ms": 108.74940000940114,
+   "n": 100,
+   "pixel4_ms": 147.0,
+   "phone_over_grace": 1.371817639810372
+  },
+  "factor": 1.406580541493682,
+  "person_detector_t1": {
+   "median_ms": 22.03740004915744,
+   "p90_ms": 22.574499947950244,
+   "n": 50
+  },
+  "person_detector_t4": {
+   "median_ms": 7.842100050766021,
+   "p90_ms": 8.162599988281727,
+   "n": 50
+  }
+ },
+ "calibration_dino": {
+  "lite": {
+   "median_ms": 17.822449968662113,
+   "p90_ms": 19.220400019548833,
+   "n": 100,
+   "pixel4_ms": 25.0,
+   "phone_over_grace": 1.4027252170132862
+  },
+  "full": {
+   "median_ms": 28.275699994992465,
+   "p90_ms": 30.520600033923984,
+   "n": 100,
+   "pixel4_ms": 40.0,
+   "phone_over_grace": 1.414642254907354
+  },
+  "heavy": {
+   "median_ms": 106.96195001946762,
+   "p90_ms": 110.27059995103627,
+   "n": 100,
+   "pixel4_ms": 147.0,
+   "phone_over_grace": 1.3743204940938833
+  },
+  "factor": 1.4027252170132862,
+  "person_detector_t1": {
+   "median_ms": 22.219300037249923,
+   "p90_ms": 23.05110008455813,
+   "n": 50
+  },
+  "person_detector_t4": {
+   "median_ms": 8.00349994096905,
+   "p90_ms": 8.873700047843158,
+   "n": 50
+  }
+ },
+ "dinov2s_560": {
+  "int8_error": "ImportError(\"cannot import name 'runtime_version' from 'google.protobuf' (C:\\\\Users\\\\zofsm\\\\3d\\\\ciop\\\\kpstudy\\\\.venv\\\\lib\\\\site-packages\\\\google\\\\protobuf\\\\__init__.py)\")",
+  "fp32_t1": {
+   "median_ms": 1022.2279000445269,
+   "p90_ms": 1030.530899995938,
+   "n": 30,
+   "model_mb": 84.01291561126709
+  },
+  "fp32_t4": {
+   "median_ms": 599.3987999972887,
+   "p90_ms": 607.8475000103936,
+   "n": 30,
+   "model_mb": 84.01291561126709
+  }
+ },
+ "dinov2s_840": {
+  "int8_error": "ImportError(\"cannot import name 'runtime_version' from 'google.protobuf' (C:\\\\Users\\\\zofsm\\\\3d\\\\ciop\\\\kpstudy\\\\.venv\\\\lib\\\\site-packages\\\\google\\\\protobuf\\\\__init__.py)\")",
+  "fp32_t1": {
+   "median_ms": 3745.62890001107,
+   "p90_ms": 4170.238099992275,
+   "n": 30,
+   "model_mb": 86.21018505096436
+  },
+  "fp32_t4": {
+   "median_ms": 2198.7507000449114,
+   "p90_ms": 2251.380500034429,
+   "n": 30,
+   "model_mb": 86.21018505096436
+  }
+ },
+ "dinov2s_1120": {
+  "int8_error": "ImportError(\"cannot import name 'runtime_version' from 'google.protobuf' (C:\\\\Users\\\\zofsm\\\\3d\\\\ciop\\\\kpstudy\\\\.venv\\\\lib\\\\site-packages\\\\google\\\\protobuf\\\\__init__.py)\")",
+  "fp32_t1": {
+   "median_ms": 9701.207700010855,
+   "p90_ms": 10028.560900012963,
+   "n": 30,
+   "model_mb": 89.28635692596436
+  },
+  "fp32_t4": {
+   "median_ms": 5912.83620003378,
+   "p90_ms": 6289.961199974641,
+   "n": 30,
+   "model_mb": 89.28635692596436
+  }
+ },
+ "dinov2b_840": {
+  "int8_error": "ImportError(\"cannot import name 'runtime_version' from 'google.protobuf' (C:\\\\Users\\\\zofsm\\\\3d\\\\ciop\\\\kpstudy\\\\.venv\\\\lib\\\\site-packages\\\\google\\\\protobuf\\\\__init__.py)\")",
+  "fp32_t1": {
+   "median_ms": 10410.95084999688,
+   "p90_ms": 11454.238399979658,
+   "n": 30,
+   "model_mb": 334.30353927612305
+  },
+  "fp32_t4": {
+   "median_ms": 7032.678199990187,
+   "p90_ms": 11021.964800078422,
+   "n": 30,
+   "model_mb": 334.30353927612305
+  }
+ },
+ "calibration_dino_end": {
+  "lite": {
+   "median_ms": 38.1688000052236,
+   "p90_ms": 67.97129998449236,
+   "n": 100,
+   "pixel4_ms": 25.0,
+   "phone_over_grace": 0.6549852234437189
+  },
+  "full": {
+   "median_ms": 70.75369998347014,
+   "p90_ms": 116.05780001264066,
+   "n": 100,
+   "pixel4_ms": 40.0,
+   "phone_over_grace": 0.5653414593066513
+  },
+  "heavy": {
+   "median_ms": 224.95840006740764,
+   "p90_ms": 321.4526999508962,
+   "n": 100,
+   "pixel4_ms": 147.0,
+   "phone_over_grace": 0.6534541495492153
+  },
+  "factor": 0.6534541495492153,
+  "person_detector_t1": {
+   "median_ms": 40.473600034601986,
+   "p90_ms": 63.22260003071278,
+   "n": 50
+  },
+  "person_detector_t4": {
+   "median_ms": 18.48535001045093,
+   "p90_ms": 30.446400051005185,
+   "n": 50
+  }
+ }
+}

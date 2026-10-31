@@ -1,0 +1,46 @@
+{
+ "klucz": "av2_b213af37_6ded35d3",
+ "zbior": "av2",
+ "log": "b213af37-7d89-342d-ae39-8a3c72159a01",
+ "track": "6ded35d3-7b06-4288-8271-01d5a86a1516",
+ "kategoria": "construction barrel",
+ "opis_obiektu": "",
+ "okno_ns": null,
+ "punkty": [
+  {
+   "nazwa": "center_of_the_handle_of_a_construction_barrel",
+   "opis": "center of the handle of a construction barrel",
+   "xyz_m": [
+    -0.09962390964806098,
+    0.0743601919973502,
+    0.5035460897938315
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 323.88,
+     "v": 103.63
+    },
+    {
+     "podglad": 1,
+     "u": 314.18,
+     "v": 111.39
+    },
+    {
+     "podglad": 0,
+     "u": 312.24,
+     "v": 105.57
+    }
+   ],
+   "residua_px": {
+    "0": 9.955083184552981,
+    "1": 7.125958176694075,
+    "2": 6.230265182175143
+   },
+   "kat_st": 64.49227733252218,
+   "lidar_cm": 1.8007265588583312
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T11:09:03.272Z"
+}

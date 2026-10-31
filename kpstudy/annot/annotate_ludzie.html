@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Anotacja punktów – ciało</title>
+<style>
+  :root { --tlo:#f4f4f2; --panel:#ffffff; --tekst:#1d1d1b; --szary:#6b6b66; --akcent:#c2410c; --linia:#d8d8d2; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.4 system-ui, sans-serif; background:var(--tlo); color:var(--tekst); display:grid;
+         grid-template-columns: minmax(0,1fr) minmax(0,1.3fr) 340px; grid-template-rows: auto minmax(0,1fr); height:100vh; }
+  header { grid-column:1/4; display:flex; gap:10px; align-items:center; padding:8px 12px; background:var(--panel); border-bottom:1px solid var(--linia); }
+  header button { font:inherit; padding:4px 8px; }
+  #widok { position:relative; min-height:0; min-width:0; }
+  #widok canvas { display:block; }
+  #tryb { position:absolute; left:10px; top:10px; background:#fff7ed; border:1px solid #fed7aa; padding:4px 8px; border-radius:6px; display:none; }
+  #podglady { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:4px; padding:4px; background:#222; overflow:auto; align-content:start; }
+  #podglady canvas { width:100%; aspect-ratio:3/5; display:block; background:#000; cursor:zoom-in; }
+  #podglady.duze { grid-template-columns:minmax(0,1fr); justify-items:center; }
+  #podglady.duze canvas { width:auto; height:calc(100vh - 70px); cursor:zoom-out; }
+  #panel { background:var(--panel); border-left:1px solid var(--linia); overflow:auto; padding:10px; }
+  label { display:block; font-size:12px; color:var(--szary); margin-top:8px; }
+  input[type=text], textarea { width:100%; font:inherit; padding:5px 7px; border:1px solid var(--linia); border-radius:6px; }
+  textarea { height:52px; resize:vertical; }
+  button { cursor:pointer; }
+  .glowny { background:var(--akcent); color:#fff; border:0; border-radius:6px; padding:6px 10px; margin-top:8px; }
+  .pkt { padding:6px 8px; border:1px solid var(--linia); border-radius:6px; margin-top:6px; cursor:pointer; }
+  .pkt.aktywny { border-color:var(--akcent); box-shadow:0 0 0 2px #fed7aa; }
+  .pkt .n { font-weight:600; } .pkt .p { color:var(--szary); font-size:12px; }
+  .pkt button { float:right; margin-left:4px; font-size:12px; }
+  .chip { display:inline-block; border:1px solid var(--linia); border-radius:12px; padding:2px 8px; margin:3px 3px 0 0; font-size:12px; cursor:pointer; background:#fafaf9; }
+  .zasada { background:#fff7ed; border:1px solid #fed7aa; border-radius:6px; padding:6px 8px; font-size:12px; }
+  h3 { margin:12px 0 4px; font-size:13px; }
+  #stan { font-weight:600; }
+</style>
+</head>
+<body>
+<header>
+  <b>Ciało człowieka (3DPW)</b>
+  <button id="zapisz">Zapisz</button>
+  <span id="stan"></span>
+  <span style="color:var(--szary)">punkt zaznaczasz raz; przechodzi na każdą osobę w każdej klatce</span>
+</header>
+<div id="widok">
+  <div id="tryb">Kliknij punkt na ciele (Esc = anuluj)</div>
+</div>
+<div id="podglady"></div>
+<div id="panel">
+  <div class="zasada">Obracaj ciało myszą. Wybierz nazwę z listy albo wpisz własną, kliknij przycisk, potem miejsce na ciele.
+    Zdjęcia obok pokazują, gdzie punkt wypada na 8 prawdziwych osobach: kółko pełne = widoczny, puste = zasłonięty.
+    Kliknięcie zdjęcia je powiększa. Sprawdź, czy na wszystkich trafia w to, co opisujesz. „Lewa” zawsze oznacza lewą stronę osoby, nie obrazu.</div>
+  <h3>Nowy punkt</h3>
+  <div id="podpowiedzi"></div>
+  <label>Nazwa (krótko, np. left_knee)</label>
+  <input type="text" id="nazwa">
+  <label>Opis po angielsku (to dostaje model, np. "the person's left kneecap")</label>
+  <textarea id="opis"></textarea>
+  <button class="glowny" id="dodaj">Kliknij na ciele, żeby postawić punkt</button>
+  <h3>Punkty</h3>
+  <div id="lista"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/PLYLoader.js"></script>
+<script>
+const el = id => document.getElementById(id);
+const B = 640, W = 384, X0 = (B - W) / 2;      // wycinek 640x640, do pokazania środkowy pas w pionie
+// propozycje punktów przydatnych przy ocenie postawy; przy parach wystarczy lewa strona i przycisk „lustro”
+const PROPOZYCJE = [
+  ['top_of_head', "the top of the person's head"], ['nose_tip', "the tip of the person's nose"], ['chin', "the person's chin"],
+  ['neck_base_front', "the base of the person's neck, at the front"], ['neck_base_back', "the base of the person's neck, at the back"],
+  ['navel', "the person's navel"], ['left_shoulder', "the outer tip of the person's left shoulder"],
+  ['left_elbow', "the tip of the person's left elbow"], ['left_wrist', "the back of the person's left wrist"],
+  ['left_hand_tip', "the tip of the person's left hand"], ['left_hip', "the outer side of the person's left hip"],
+  ['left_knee', "the person's left kneecap"], ['left_ankle', "the outer bone of the person's left ankle"],
+  ['left_heel', "the person's left heel"], ['left_toe', "the tip of the person's left foot"],
+];
+let meta, lustro, stan = { punkty: [] }, aktywny = -1, uzbrojony = null, zmiany = false, obrazy = [];
+let scene, camera, renderer, controls, model, grupa;
+async function json(url) { const r = await fetch(url); if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); }
+
+function init3d() {
+  renderer = new THREE.WebGLRenderer({ antialias:true }); renderer.setPixelRatio(window.devicePixelRatio);
+  el('widok').appendChild(renderer.domElement);
+  scene = new THREE.Scene(); scene.background = new THREE.Color(0xe7e5e4);
+  camera = new THREE.PerspectiveCamera(30, 1, 0.05, 20); camera.position.set(0, 0, 4.2);
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.45));
+  const d = new THREE.DirectionalLight(0xffffff, 0.75); d.position.set(1, 1.5, 2); camera.add(d); scene.add(camera);
+  grupa = new THREE.Group(); scene.add(grupa);
+  etykieta('lewa osoby', 0.55); etykieta('prawa osoby', -0.55);
+  window.addEventListener('resize', rozmiar); rozmiar();
+  let dol = null;
+  renderer.domElement.addEventListener('pointerdown', e => { dol = [e.clientX, e.clientY]; });
+  renderer.domElement.addEventListener('pointerup', e => { if (dol && Math.hypot(e.clientX - dol[0], e.clientY - dol[1]) <= 4) klik(e); });
+  (function petla() { requestAnimationFrame(petla); controls.update(); renderer.render(scene, camera); })();
+}
+function etykieta(tekst, x) {                     // napis w scenie, obraca się razem z ciałem
+  const c = document.createElement('canvas'); c.width = 512; c.height = 96;
+  const g = c.getContext('2d'); g.font = 'bold 64px system-ui'; g.textAlign = 'center'; g.fillStyle = '#57534e'; g.fillText(tekst, 256, 70);
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), depthTest: false }));
+  s.scale.set(0.6, 0.1125, 1); s.position.set(x, 0.62, 0); scene.add(s);
+}
+function rozmiar() { const w = el('widok'); renderer.setSize(w.clientWidth, w.clientHeight); camera.aspect = w.clientWidth / Math.max(1, w.clientHeight); camera.updateProjectionMatrix(); }
+
+function klik(e) {
+  if (!model || uzbrojony === null) return;
+  const r = renderer.domElement.getBoundingClientRect();
+  const m = new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+  const rc = new THREE.Raycaster(); rc.setFromCamera(m, camera);
+  const hit = rc.intersectObject(model)[0]; if (!hit) return;
+  const pos = model.geometry.attributes.position, f = [hit.face.a, hit.face.b, hit.face.c];
+  const A = new THREE.Vector3().fromBufferAttribute(pos, f[0]), Bv = new THREE.Vector3().fromBufferAttribute(pos, f[1]), C = new THREE.Vector3().fromBufferAttribute(pos, f[2]);
+  const b = new THREE.Triangle(A, Bv, C).getBarycoord(hit.point, new THREE.Vector3());
+  const miejsce = { trojkat: f, bary: [b.x, b.y, b.z].map(x => +x.toFixed(4)) };
+  if (uzbrojony === 'nowy') {
+    stan.punkty.push({ nazwa: el('nazwa').value.trim(), opis: el('opis').value.trim(), ...miejsce });
+    aktywny = stan.punkty.length - 1; el('nazwa').value = ''; el('opis').value = '';
+  } else { Object.assign(stan.punkty[uzbrojony], miejsce); aktywny = uzbrojony; }
+  uzbrojony = null; el('tryb').style.display = 'none'; zmiany = true; odswiez();
+}
+
+const lustrzanaNazwa = s => s.replace(/left/g, '\u0001').replace(/right/g, 'left').replace(/\u0001/g, 'right');
+function dodajLustro(i) {
+  const p = stan.punkty[i], nazwa = lustrzanaNazwa(p.nazwa);
+  if (stan.punkty.some(q => q.nazwa === nazwa)) { alert('Punkt ' + nazwa + ' już jest.'); return; }
+  stan.punkty.push({ nazwa, opis: lustrzanaNazwa(p.opis), trojkat: p.trojkat.map(v => lustro[v]), bary: p.bary });
+  aktywny = stan.punkty.length - 1; zmiany = true; odswiez();
+}
+
+function odswiez() {
+  const lista = el('lista'); lista.innerHTML = '';
+  stan.punkty.forEach((p, i) => {
+    const d = document.createElement('div'); d.className = 'pkt' + (i === aktywny ? ' aktywny' : '');
+    const para = /left|right/.test(p.nazwa) && !stan.punkty.some(q => q.nazwa === lustrzanaNazwa(p.nazwa));
+    d.innerHTML = '<button data-a="usun">usuń</button><button data-a="przesun">przestaw</button>' + (para ? '<button data-a="lustro">lustro</button>' : '') +
+                  '<div class="n">' + (i + 1) + '. ' + p.nazwa + '</div><div class="p">' + p.opis + '</div>';
+    d.onclick = ev => {
+      const a = ev.target.dataset.a;
+      if (a === 'usun') { stan.punkty.splice(i, 1); aktywny = -1; zmiany = true; }
+      else if (a === 'przesun') { uzbrojony = i; el('tryb').style.display = 'block'; }
+      else if (a === 'lustro') { dodajLustro(i); return; }
+      else aktywny = i;
+      odswiez();
+    };
+    lista.appendChild(d);
+  });
+  grupa.clear();
+  if (model) {
+    const pos = model.geometry.attributes.position;
+    stan.punkty.forEach((p, i) => {
+      const v = new THREE.Vector3();
+      p.trojkat.forEach((t, k) => v.addScaledVector(new THREE.Vector3().fromBufferAttribute(pos, t), p.bary[k]));
+      const s = new THREE.Mesh(new THREE.SphereGeometry(i === aktywny ? 0.016 : 0.011, 14, 10),
+                               new THREE.MeshBasicMaterial({ color: i === aktywny ? 0xdc2626 : 0xfacc15 }));
+      s.position.copy(v); grupa.add(s);
+    });
+  }
+  obrazy.forEach(rysuj);
+  const uzyte = new Set(stan.punkty.flatMap(p => [p.nazwa, lustrzanaNazwa(p.nazwa)])), pd = el('podpowiedzi'); pd.innerHTML = '';
+  PROPOZYCJE.filter(p => !uzyte.has(p[0])).forEach(p => {
+    const c = document.createElement('span'); c.className = 'chip'; c.textContent = p[0]; c.title = p[1];
+    c.onclick = () => { el('nazwa').value = p[0]; el('opis').value = p[1]; }; pd.appendChild(c);
+  });
+  el('stan').textContent = (zmiany ? 'niezapisane · ' : '') + stan.punkty.length + ' pkt';
+}
+
+function rysuj(o) {
+  if (!o.dane || !o.img.complete) return;
+  const c = o.canvas, ctx = c.getContext('2d'); ctx.drawImage(o.img, X0, 0, W, B, 0, 0, W, B);
+  const r = B / 70;
+  stan.punkty.forEach((p, i) => {
+    let u = -X0, v = 0, w = 0;
+    p.trojkat.forEach((t, k) => { u += p.bary[k] * o.dane.uv[t][0]; v += p.bary[k] * o.dane.uv[t][1]; w += p.bary[k] * o.dane.wid[t]; });
+    const akt = i === aktywny, kol = akt ? '#ef4444' : '#facc15';
+    ctx.beginPath(); ctx.arc(u, v, akt ? 1.5 * r : r, 0, 2 * Math.PI);
+    if (w >= 0.5) { ctx.fillStyle = kol; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = '#000'; ctx.stroke(); }
+    else { ctx.lineWidth = 3; ctx.strokeStyle = kol; ctx.stroke(); }
+    ctx.font = 'bold ' + Math.round(1.9 * r) + 'px system-ui'; ctx.lineWidth = 4; ctx.strokeStyle = '#000'; ctx.fillStyle = '#fff';
+    ctx.strokeText(String(i + 1), u + 1.6 * r, v - r); ctx.fillText(String(i + 1), u + 1.6 * r, v - r);
+  });
+}
+
+async function zapisz() {
+  const body = { punkty: stan.punkty, uklad: 'siatka SMPL: trojkat (3 wierzchołki) + współrzędne barycentryczne', czas: new Date().toISOString() };
+  const r = await fetch('/zapisz_ludzie', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) { alert('Nie udało się zapisać: ' + r.status); return; }
+  zmiany = false; odswiez();
+}
+
+el('dodaj').onclick = () => {
+  if (!el('nazwa').value.trim() || !el('opis').value.trim()) { alert('Wybierz punkt z listy albo wpisz nazwę i opis.'); return; }
+  uzbrojony = 'nowy'; el('tryb').style.display = 'block';
+};
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { uzbrojony = null; el('tryb').style.display = 'none'; }
+  if (e.key === 's' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); zapisz(); }
+});
+window.addEventListener('beforeunload', e => { if (zmiany) { e.preventDefault(); e.returnValue = ''; } });
+el('zapisz').onclick = zapisz;
+
+(async () => {
+  init3d();
+  meta = await json('ludzie/meta.json'); lustro = await json('ludzie/lustro.json');
+  try { stan = await json('punkty_ludzie.json'); } catch (e) { stan = { punkty: [] }; }
+  new THREE.PLYLoader().load('ludzie/cialo.ply', g => {
+    g.computeVertexNormals();
+    model = new THREE.Mesh(g, new THREE.MeshLambertMaterial({ color: 0xc9b8a6, side: THREE.DoubleSide })); scene.add(model); odswiez();
+  });
+  const pg = el('podglady');
+  for (const p of meta.podglady) {
+    const c = document.createElement('canvas'); c.width = W; c.height = B; pg.appendChild(c);
+    c.onclick = () => { const on = !pg.classList.contains('duze'); pg.classList.toggle('duze', on);
+                        [...pg.children].forEach(x => { x.style.display = !on || x === c ? '' : 'none'; }); };
+    const img = new Image(), o = { canvas:c, img, dane:null }; obrazy.push(o);
+    img.onload = () => rysuj(o); img.src = 'ludzie/' + p.plik;
+    json('ludzie/' + p.dane).then(d => { o.dane = d; rysuj(o); });
+  }
+  odswiez();
+})();
+</script>
+</body>
+</html>

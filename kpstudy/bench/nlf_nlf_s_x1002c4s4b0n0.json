@@ -1,0 +1,15 @@
+{
+ "model": "nlf_s_multi_0.2.2.torchscript",
+ "host": "x1002c4s4b0n0",
+ "machine": "aarch64",
+ "crop_model_params_M": 26.353464,
+ "detector_params_M": 68.200608,
+ "crop_t1": {
+  "median_ms": 115.62659297487698,
+  "p90_ms": 117.10055498406291
+ },
+ "crop_t4": {
+  "median_ms": 69.53008647542447,
+  "p90_ms": 88.66631600540131
+ }
+}

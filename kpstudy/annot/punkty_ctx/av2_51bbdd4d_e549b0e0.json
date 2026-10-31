@@ -1,0 +1,106 @@
+{
+ "klucz": "av2_51bbdd4d_e549b0e0",
+ "zbior": "av2",
+ "log": "51bbdd4d-3065-34ae-b369-b6e0444f34db",
+ "track": "e549b0e0-ee30-4ec4-81d3-be88c833a18a",
+ "kategoria": "bicycle",
+ "opis_obiektu": "",
+ "okno_ns": null,
+ "punkty": [
+  {
+   "nazwa": "left_pedal_of_a_bicycle",
+   "opis": "left pedal of a bicycle",
+   "xyz_m": [
+    -0.125228364723628,
+    -0.0766258651270895,
+    -0.25201987548640165
+   ],
+   "klikniecia": [
+    {
+     "podglad": 3,
+     "u": 304.48,
+     "v": 371.81
+    },
+    {
+     "podglad": 1,
+     "u": 323.88,
+     "v": 381.13
+    }
+   ],
+   "residua_px": {
+    "1": 1.7679455909281285,
+    "3": 1.8059384487455654
+   },
+   "kat_st": 8.386264827942039,
+   "lidar_cm": 9.246873421804043
+  },
+  {
+   "nazwa": "right_end_of_a_bicycle_handlebar",
+   "opis": "right end of a bicycle handlebar",
+   "xyz_m": [
+    0.30685042631102954,
+    -0.4568217802203114,
+    0.5249229139294738
+   ],
+   "klikniecia": [
+    {
+     "podglad": 2,
+     "u": 162.81,
+     "v": 119.15
+    },
+    {
+     "podglad": 1,
+     "u": 156.99,
+     "v": 123.03
+    }
+   ],
+   "residua_px": {
+    "1": 2.2762385561975225,
+    "2": 2.301424175843173
+   },
+   "kat_st": 5.723361503128308,
+   "lidar_cm": 12.909094568274531
+  },
+  {
+   "nazwa": "bottom_of_the_rear_wheel_of_a_bicycle_where_it_touches_the_ground",
+   "opis": "bottom of the rear wheel of a bicycle where it touches the ground",
+   "xyz_m": [
+    -0.6408776922528471,
+    -0.24928613647995723,
+    -0.5540721568744409
+   ],
+   "klikniecia": [
+    {
+     "podglad": 4,
+     "u": 290.89,
+     "v": 447.5
+    },
+    {
+     "podglad": 1,
+     "u": 298.65,
+     "v": 447.11
+    },
+    {
+     "podglad": 5,
+     "u": 285.07,
+     "v": 443.61
+    },
+    {
+     "podglad": 3,
+     "u": 252.08,
+     "v": 445.55
+    }
+   ],
+   "residua_px": {
+    "1": 4.192528907655691,
+    "3": 7.210443160581829,
+    "4": 0.7750365859865198,
+    "5": 4.64677202104704
+   },
+   "kat_st": 7.758056027033969,
+   "lidar_cm": 5.870851665497062
+  }
+ ],
+ "uklad": "ramka obiektu AV2 (x przód, y lewo, z góra, środek prostopadłościanu), m",
+ "czas": "2026-10-30T10:44:35.466Z"
+}

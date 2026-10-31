@@ -1,0 +1,78 @@
+{
+ "podglady": [
+  {
+   "plik": "podglad_0.jpg",
+   "dane": "podglad_0.json",
+   "sekwencja": "downtown_windowShopping_00",
+   "osoba": 0,
+   "klatka": 600,
+   "kierunek": "tyl",
+   "ostrosc": 115.3
+  },
+  {
+   "plik": "podglad_1.jpg",
+   "dane": "podglad_1.json",
+   "sekwencja": "downtown_enterShop_00",
+   "osoba": 0,
+   "klatka": 585,
+   "kierunek": "tyl",
+   "ostrosc": 754.7
+  },
+  {
+   "plik": "podglad_2.jpg",
+   "dane": "podglad_2.json",
+   "sekwencja": "downtown_bus_00",
+   "osoba": 0,
+   "klatka": 405,
+   "kierunek": "przod",
+   "ostrosc": 1497.2
+  },
+  {
+   "plik": "podglad_3.jpg",
+   "dane": "podglad_3.json",
+   "sekwencja": "downtown_walkDownhill_00",
+   "osoba": 0,
+   "klatka": 150,
+   "kierunek": "prawy",
+   "ostrosc": 121.5
+  },
+  {
+   "plik": "podglad_4.jpg",
+   "dane": "podglad_4.json",
+   "sekwencja": "courtyard_rangeOfMotions_01",
+   "osoba": 1,
+   "klatka": 150,
+   "kierunek": "przod",
+   "ostrosc": 2850.0
+  },
+  {
+   "plik": "podglad_5.jpg",
+   "dane": "podglad_5.json",
+   "sekwencja": "downtown_bar_00",
+   "osoba": 1,
+   "klatka": 300,
+   "kierunek": "prawy",
+   "ostrosc": 137.2
+  },
+  {
+   "plik": "podglad_6.jpg",
+   "dane": "podglad_6.json",
+   "sekwencja": "downtown_walkUphill_00",
+   "osoba": 0,
+   "klatka": 240,
+   "kierunek": "lewy",
+   "ostrosc": 87.6
+  },
+  {
+   "plik": "podglad_7.jpg",
+   "dane": "podglad_7.json",
+   "sekwencja": "courtyard_golf_00",
+   "osoba": 0,
+   "klatka": 390,
+   "kierunek": "lewy",
+   "ostrosc": 3297.6
+  }
+ ],
+ "wierzcholkow": 6890,
+ "trojkatow": 13776
+}
