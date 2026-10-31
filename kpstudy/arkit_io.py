@@ -14,12 +14,15 @@ oś-kąt i przesunięcie z .traj to przekształcenie świat -> kamera; kamera ja
 """
 import glob
 import os
+import sys
 
 import cv2
 import numpy as np
 from PIL import Image
 
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'dane', 'arkitscenes', 'raw')
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import paths  # noqa: E402
+ROOT = os.path.join(paths.DANE, 'arkitscenes', 'raw')
 WIDE = (1920, 1440)
 
 

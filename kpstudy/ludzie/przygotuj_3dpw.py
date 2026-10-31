@@ -24,7 +24,9 @@ from pkl_bezpieczny import wczytaj     # noqa: E402
 from smpl_np import SMPL               # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-D3PW = os.path.abspath(os.path.join(HERE, '..', '..', '..', 'dane', '3dpw'))
+sys.path.insert(0, os.path.join(HERE, '..'))
+import paths  # noqa: E402
+D3PW = os.path.join(paths.DANE, '3dpw')
 OUT = os.path.abspath(os.path.join(HERE, '..', 'annot', 'ludzie'))
 BOK = 640
 MIN_OSTROSC = 20

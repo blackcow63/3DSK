@@ -18,12 +18,15 @@ Słucha tylko na 127.0.0.1.
 """
 import json
 import os
+import sys
 import re
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-RAW = os.path.abspath(os.path.join(HERE, '..', '..', '..', 'dane', 'arkitscenes', 'raw'))
-BOP = os.path.abspath(os.path.join(HERE, '..', '..', '..', 'dane', 'bop'))
+sys.path.insert(0, os.path.join(HERE, '..'))
+import paths  # noqa: E402
+RAW = os.path.join(paths.DANE, 'arkitscenes', 'raw')
+BOP = os.path.join(paths.DANE, 'bop')
 PUNKTY = os.path.join(HERE, 'punkty')
 PUNKTY_OBJ = os.path.join(HERE, 'punkty_obj')
 PUNKTY_CTX = os.path.join(HERE, 'punkty_ctx')

@@ -11,7 +11,10 @@ import pickle
 
 import numpy as np
 
-KATALOG = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'chairs-dataset', 'body_models', 'smpl'))
+import sys  # noqa: E402
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+import paths  # noqa: E402
+KATALOG = os.environ.get('KP_SMPL') or os.path.join(paths.DANE, 'smpl')   # modele SMPL v1.0.0 (*.pkl)
 
 
 class _Ch:

@@ -12,13 +12,16 @@ więc każdy egzemplarz na każdym zdjęciu dostaje je automatycznie. Lista: ann
 import functools
 import json
 import os
+import sys
 import re
 
 import numpy as np
 from PIL import Image
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-BOP = os.path.abspath(os.path.join(HERE, '..', '..', '..', 'dane', 'bop'))
+sys.path.insert(0, os.path.join(HERE, '..'))
+import paths  # noqa: E402
+BOP = os.path.join(paths.DANE, 'bop')
 OUT = os.path.join(HERE, 'obiekty')
 BOK = 480          # bok podglądu (px)
 MIN_WIDOCZNOSC = 0.6

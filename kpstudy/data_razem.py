@@ -36,7 +36,8 @@ from scipy.spatial import cKDTree
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ANNOT = os.path.join(HERE, 'annot')
-DANE = os.path.abspath(os.path.join(HERE, '..', '..', 'dane'))
+import paths  # noqa: E402
+DANE = paths.DANE
 OUT = os.path.join(DANE, 'kp_razem')
 sys.path[:0] = [ANNOT, os.path.join(HERE, 'ludzie')]
 import przygotuj_av2 as AV2        # noqa: E402

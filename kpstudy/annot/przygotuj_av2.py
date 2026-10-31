@@ -24,7 +24,9 @@ import pandas as pd
 from scipy.spatial.transform import Rotation, Slerp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-AV2 = os.path.abspath(os.path.join(HERE, '..', '..', '..', 'dane', 'av2'))
+sys.path.insert(0, os.path.join(HERE, '..'))
+import paths  # noqa: E402
+AV2 = os.path.join(paths.DANE, 'av2')
 OUT = os.path.join(HERE, 'kontekst')
 BOK = 640
 KAMERY = ['ring_front_center', 'ring_front_left', 'ring_front_right', 'ring_rear_left', 'ring_rear_right',
@@ -320,7 +322,7 @@ def jednostki_logu(log):
 
 
 def main():
-    logi = [l.strip() for l in open(os.path.join(AV2, 'wybrane.txt')) if l.strip()]
+    logi = [l.strip() for l in open(os.path.join(HERE, '..', 'dane_skrypty', 'av2', 'wybrane.txt')) if l.strip()]
     if len(sys.argv) > 1:
         logi = [l for l in logi if l.startswith(sys.argv[1])]
     lista_p = os.path.join(HERE, 'kontekst.json')

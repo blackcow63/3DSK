@@ -22,7 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..'))
 import arkit_io as A  # noqa: E402
 
-LISTA = os.path.join(A.ROOT, '..', 'biurka_po_wizycie.json')
+LISTA = os.path.join(HERE, '..', 'dane_skrypty', 'arkitscenes', 'biurka_po_wizycie.json')
 OUT = os.path.join(HERE, 'sceny')
 KLATKI = os.path.join(A.ROOT, '..', 'klatki')   # klatki z wideo (dane/arkitscenes/klatki.py)
 PODGLAD = (960, 720)

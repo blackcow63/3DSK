@@ -11,11 +11,13 @@ ref.json: {scena: {punkt: [{"view": id, "u": u, "v": v}, ...]}}; to tylko piksel
 import collections
 import json
 import os
+import sys
 
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, '..', '..', 'dane', 'kp_razem'))
+import paths  # noqa: E402
+ROOT = os.path.join(paths.DANE, 'kp_razem')
 ILE = 3
 
 

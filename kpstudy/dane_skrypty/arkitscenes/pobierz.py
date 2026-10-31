@@ -10,6 +10,11 @@ import os
 import subprocess
 import zipfile
 
+import sys  # noqa: E402
+HERE0 = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE0, '..', '..'))
+import paths  # noqa: E402
+
 U = 'https://docs-assets.developer.apple.com/ml-research/datasets/arkitscenes/v1'
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -28,7 +33,7 @@ def pobierz(url, dst):
 def main():
     for x in json.load(open(os.path.join(HERE, 'biurka_po_wizycie.json'))):
         v, fold = x['video_id'], x['fold']
-        d = os.path.join(HERE, 'raw', v)
+        d = os.path.join(paths.DANE, 'arkitscenes', 'raw', v)
         os.makedirs(d, exist_ok=True)
         pliki = {f'{U}/upsampling/{fold}/{v}.zip': 'upsampling.zip',
                  f'{U}/raw/{fold}/{v}/{v}_3dod_mesh.ply': 'mesh.ply',

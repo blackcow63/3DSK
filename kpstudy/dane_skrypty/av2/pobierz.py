@@ -16,7 +16,9 @@ from concurrent.futures import ThreadPoolExecutor
 URL = 'https://argoverse.s3.amazonaws.com/'
 PREF = 'datasets/av2/sensor/val/'
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, 'val')
+sys.path.insert(0, os.path.join(HERE, '..', '..'))
+import paths  # noqa: E402
+OUT = os.path.join(paths.DANE, 'av2', 'val')
 KAMERY = ['ring_front_center', 'ring_front_left', 'ring_front_right', 'ring_rear_left', 'ring_rear_right',
           'ring_side_left', 'ring_side_right']
 

@@ -21,8 +21,9 @@ import zipfile
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, '..', '..', 'ciop', 'kpstudy'))
-sys.path.insert(0, os.path.join(HERE, '..', '..', 'ciop', 'kpstudy', 'annot'))
+sys.path.insert(0, os.path.join(HERE, '..', '..'))
+sys.path.insert(0, os.path.join(HERE, '..', '..', 'annot'))
+import paths  # noqa: E402
 import arkit_io as A  # noqa: E402
 from przygotuj import pudelka, biurko  # noqa: E402
 
@@ -80,7 +81,7 @@ def main():
         v = x['video_id']
         if x['poz_z_biurkiem'] < 30:
             continue
-        out = os.path.join(HERE, 'klatki', v)
+        out = os.path.join(paths.DANE, 'arkitscenes', 'klatki', v)
         if os.path.exists(os.path.join(out, 'klatki.json')):
             print(v, 'już jest', flush=True)
             continue
