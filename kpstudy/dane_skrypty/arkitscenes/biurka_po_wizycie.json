@@ -1,0 +1,322 @@
+[
+{
+"video_id": "43649609",
+"fold": "Training",
+"wys_stolu": 0.75,
+"szer_monitora": 0.54,
+"krzeslo_m": 0.03,
+"visit_id": "437167.0"
+},
+{
+"video_id": "47204566",
+"fold": "Validation",
+"wys_stolu": 0.76,
+"szer_monitora": 0.53,
+"krzeslo_m": 0.15,
+"visit_id": "471948.0"
+},
+{
+"video_id": "47669927",
+"fold": "Training",
+"wys_stolu": 0.83,
+"szer_monitora": 0.67,
+"krzeslo_m": 0.17,
+"visit_id": "481670.0"
+},
+{
+"video_id": "47334559",
+"fold": "Training",
+"wys_stolu": 0.75,
+"szer_monitora": 0.55,
+"krzeslo_m": 0.24,
+"visit_id": "468104.0"
+},
+{
+"video_id": "47333870",
+"fold": "Training",
+"wys_stolu": 0.73,
+"szer_monitora": 0.39,
+"krzeslo_m": 0.26,
+"visit_id": "467350.0"
+},
+{
+"video_id": "42445044",
+"fold": "Training",
+"wys_stolu": 0.74,
+"szer_monitora": 0.54,
+"krzeslo_m": 0.27,
+"visit_id": "421659.0"
+},
+{
+"video_id": "42445729",
+"fold": "Training",
+"wys_stolu": 0.8,
+"szer_monitora": 0.51,
+"krzeslo_m": 0.3,
+"visit_id": "421616.0"
+},
+{
+"video_id": "47204761",
+"fold": "Training",
+"wys_stolu": 0.77,
+"szer_monitora": 0.46,
+"krzeslo_m": 0.31,
+"visit_id": "472475.0"
+},
+{
+"video_id": "42445758",
+"fold": "Training",
+"wys_stolu": 0.75,
+"szer_monitora": 0.46,
+"krzeslo_m": 0.32,
+"visit_id": "421593.0"
+},
+{
+"video_id": "45261241",
+"fold": "Training",
+"wys_stolu": 0.73,
+"szer_monitora": 0.35,
+"krzeslo_m": 0.32,
+"visit_id": "466964.0"
+},
+{
+"video_id": "45261406",
+"fold": "Training",
+"wys_stolu": 0.74,
+"szer_monitora": 0.51,
+"krzeslo_m": 0.32,
+"visit_id": "467252.0"
+},
+{
+"video_id": "44358270",
+"fold": "Training",
+"wys_stolu": 0.75,
+"szer_monitora": 0.39,
+"krzeslo_m": 0.34,
+"visit_id": "438801.0"
+},
+{
+"video_id": "45261509",
+"fold": "Training",
+"wys_stolu": 0.78,
+"szer_monitora": 0.56,
+"krzeslo_m": 0.35,
+"visit_id": "467287.0"
+},
+{
+"video_id": "47895653",
+"fold": "Training",
+"wys_stolu": 0.72,
+"szer_monitora": 0.54,
+"krzeslo_m": 0.37,
+"visit_id": "482135.0"
+},
+{
+"video_id": "42445882",
+"fold": "Training",
+"wys_stolu": 0.72,
+"szer_monitora": 0.63,
+"krzeslo_m": 0.4,
+"visit_id": "422013.0"
+},
+{
+"video_id": "47331661",
+"fold": "Validation",
+"wys_stolu": 0.74,
+"szer_monitora": 0.63,
+"krzeslo_m": 0.41,
+"visit_id": "466846.0"
+},
+{
+"video_id": "42446579",
+"fold": "Training",
+"wys_stolu": 0.78,
+"szer_monitora": 0.55,
+"krzeslo_m": 0.43,
+"visit_id": "422356.0"
+},
+{
+"video_id": "47331575",
+"fold": "Training",
+"wys_stolu": 0.77,
+"szer_monitora": 0.71,
+"krzeslo_m": 0.43,
+"visit_id": "466850.0"
+},
+{
+"video_id": "47430646",
+"fold": "Training",
+"wys_stolu": 0.75,
+"szer_monitora": 0.56,
+"krzeslo_m": 0.44,
+"visit_id": "472348.0"
+},
+{
+"video_id": "43828230",
+"fold": "Training",
+"wys_stolu": 0.78,
+"szer_monitora": 0.51,
+"krzeslo_m": 0.47,
+"visit_id": "437448.0"
+},
+{
+"video_id": "47429992",
+"fold": "Validation",
+"wys_stolu": 0.75,
+"szer_monitora": 0.58,
+"krzeslo_m": 0.48,
+"visit_id": "470543.0"
+},
+{
+"video_id": "47333810",
+"fold": "Training",
+"wys_stolu": 0.74,
+"szer_monitora": 0.52,
+"krzeslo_m": 0.5,
+"visit_id": "468077.0"
+},
+{
+"video_id": "42897892",
+"fold": "Training",
+"wys_stolu": 0.76,
+"szer_monitora": 0.62,
+"krzeslo_m": 0.53,
+"visit_id": "423296.0"
+},
+{
+"video_id": "47670299",
+"fold": "Training",
+"wys_stolu": 0.76,
+"szer_monitora": 0.57,
+"krzeslo_m": 0.53,
+"visit_id": "482858.0"
+},
+{
+"video_id": "48018081",
+"fold": "Training",
+"wys_stolu": 0.75,
+"szer_monitora": 0.44,
+"krzeslo_m": 0.56,
+"visit_id": "483089.0"
+},
+{
+"video_id": "48458262",
+"fold": "Training",
+"wys_stolu": 0.72,
+"szer_monitora": 0.65,
+"krzeslo_m": 0.56,
+"visit_id": "483084.0"
+},
+{
+"video_id": "47332886",
+"fold": "Validation",
+"wys_stolu": 0.75,
+"szer_monitora": 0.43,
+"krzeslo_m": 0.57,
+"visit_id": "469272.0"
+},
+{
+"video_id": "45260920",
+"fold": "Validation",
+"wys_stolu": 0.75,
+"szer_monitora": 0.47,
+"krzeslo_m": 0.61,
+"visit_id": "466183.0"
+},
+{
+"video_id": "47333468",
+"fold": "Training",
+"wys_stolu": 0.71,
+"szer_monitora": 0.41,
+"krzeslo_m": 0.62,
+"visit_id": "467138.0"
+},
+{
+"video_id": "43649743",
+"fold": "Training",
+"wys_stolu": 0.86,
+"szer_monitora": 0.5,
+"krzeslo_m": 0.63,
+"visit_id": "437218.0"
+},
+{
+"video_id": "47204387",
+"fold": "Training",
+"wys_stolu": 0.75,
+"szer_monitora": 0.54,
+"krzeslo_m": 0.64,
+"visit_id": "471172.0"
+},
+{
+"video_id": "42445916",
+"fold": "Training",
+"wys_stolu": 0.72,
+"szer_monitora": 0.53,
+"krzeslo_m": 0.69,
+"visit_id": "422569.0"
+},
+{
+"video_id": "47895341",
+"fold": "Validation",
+"wys_stolu": 0.74,
+"szer_monitora": 0.5,
+"krzeslo_m": 0.7,
+"visit_id": "472297.0"
+},
+{
+"video_id": "47332895",
+"fold": "Validation",
+"wys_stolu": 0.71,
+"szer_monitora": 0.65,
+"krzeslo_m": 0.71,
+"visit_id": "469266.0"
+},
+{
+"video_id": "42447199",
+"fold": "Training",
+"wys_stolu": 0.73,
+"szer_monitora": 0.65,
+"krzeslo_m": 0.73,
+"visit_id": "422384.0"
+},
+{
+"video_id": "47333138",
+"fold": "Training",
+"wys_stolu": 0.86,
+"szer_monitora": 0.79,
+"krzeslo_m": 0.73,
+"visit_id": "469456.0"
+},
+{
+"video_id": "45261452",
+"fold": "Training",
+"wys_stolu": 0.73,
+"szer_monitora": 0.57,
+"krzeslo_m": 0.78,
+"visit_id": "467285.0"
+},
+{
+"video_id": "42445718",
+"fold": "Training",
+"wys_stolu": 0.84,
+"szer_monitora": 0.57,
+"krzeslo_m": 0.87,
+"visit_id": "422217.0"
+},
+{
+"video_id": "44796332",
+"fold": "Training",
+"wys_stolu": 0.71,
+"szer_monitora": 0.67,
+"krzeslo_m": 0.87,
+"visit_id": "464785.0"
+},
+{
+"video_id": "47332152",
+"fold": "Training",
+"wys_stolu": 0.73,
+"szer_monitora": 0.43,
+"krzeslo_m": 1.07,
+"visit_id": "471179.0"
+}
+]

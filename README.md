@@ -10,4 +10,5 @@ Tylko kod i wyniki eksperymentów (`kpstudy/`). Papier, docs i dane są poza rep
 - `kpstudy/helios/` - zadania slurm na Helios
 - `kpstudy/results/` - wyniki per metoda (`lift_*.jsonl`); tabele: `report/tabela_eval.py`
 
-Nie ma w repo: zdjęć i chmur do anotacji (`annot/*/*.jpg|ply|bin`), wag modeli, predykcji (`preds/`), .venv.
+Dane i modele: patrz `kpstudy/DANE.md` (jak pobrać zdjęcia, chmury i zbiór wspólny).
+Nie ma w repo: zdjęć i chmur do anotacji, wag modeli, predykcji (`preds/`), .venv.
