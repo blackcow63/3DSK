@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""Tabele sekcji Evaluation z wyników na zbiorze kp_razem: docs/paper/tab_eval.tex, tab_rozklad.tex i makra wyniki.tex.
+"""Tabele sekcji Evaluation z wyników na zbiorze kp_razem: report/out/tab_eval.tex, tab_rozklad.tex i makra wyniki.tex (albo $KP_OUT).
 
-    python report/tabela_eval.py --root ../../dane/kp_razem
+    python report/tabela_eval.py --root $KP_DANE/kp_razem
 
 Błąd podany jest w procentach odległości punktu od kamery, więc biurko i ulica dają się połączyć w jeden wynik. Wszystkie
 źródła z pomiarem liczone razem, na tych samych zdjęciach: co dziewiąte zdjęcie typu frame (wspólna próbka).
@@ -16,7 +16,8 @@ import os
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-PAPER = os.path.abspath(os.path.join(HERE, '..', '..', 'docs', 'paper'))
+PAPER = os.path.abspath(os.environ.get('KP_OUT') or os.path.join(HERE, 'out'))   # tu lądują tab_eval.tex, tab_rozklad.tex, wyniki.tex
+os.makedirs(PAPER, exist_ok=True)
 MODELE = [
     ('robobrain25_8b', 'RoboBrain 2.5 8B-NV', 'A'), ('robobrain25_8b_mt', 'RoboBrain 2.5 8B-MT', 'A'), ('robobrain25_4b', 'RoboBrain 2.5 4B', 'A'),
     ('robobrain25_8b_q4', 'RoboBrain 2.5 8B-NV, 4-bit', 'A'), ('robobrain25_4b_q4', 'RoboBrain 2.5 4B, 4-bit', 'A'),

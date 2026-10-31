@@ -11,6 +11,18 @@ i uruchamia się je stamtąd, zapisują do `$KP_DANE`.
 Wszystkie polecenia poniżej wykonuj w katalogu `kpstudy/` repo. Python 3 z numpy, scipy, opencv-python, pillow, pandas, pyarrow;
 `curl` i `ffmpeg` w PATH.
 
+## 0. Najprościej: gotowe paczki zip od autorki
+Cztery zipy zawierają wszystko poniżej już przygotowane (zdjęcia do anotacji, zbiór `kp_razem`, siatki, predykcje modeli):
+
+| Paczka | Rozpakuj do |
+|---|---|
+| `1_annot_zdjecia.zip` | katalogu `kpstudy/` (tworzy `annot/sceny`, `annot/kontekst`, `annot/obiekty`, `annot/ludzie`) |
+| `2_kp_razem.zip` | `$KP_DANE` (tworzy `kp_razem/`) |
+| `3_siatki_arkit_i_modele_bop.zip` | `$KP_DANE` (tworzy `arkitscenes/raw/<scena>/mesh.ply`, `bop/*/models/`) |
+| `4_kp_razem_preds.zip` | `$KP_DANE` (tworzy `kp_razem/preds/`) |
+
+Wtedy kroki 1-4 poniżej są zbędne. Zostają one na wypadek budowy danych od zera.
+
 ## 1. ARKitScenes (biurka, 26 scen) - Apple, licencja niekomercyjna
 Nic się nie rejestruje, pliki idą po HTTPS z docs-assets.developer.apple.com.
 ```
